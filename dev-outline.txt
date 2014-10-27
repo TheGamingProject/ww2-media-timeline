@@ -1,0 +1,62 @@
+HEADER
+	100% width container
+		left-hand info toggle
+		centered logo
+		right-hand filter toggles
+
+SIDE PANEL
+	left-hand overlapping panel (fixed size/position)
+		right-hand close toggle
+		descriptive text w/ links
+
+OVERFLOW-X SCROLL CONTAINER FOR TIMELINE
+	 
+	EURO COLUMNS [month-width, fill to window top]
+		media bubble w/type outline
+			hover-over item name/type
+				item type
+				item name
+				right-hand expand button 
+
+	TIMELINE
+		vertically centered main container
+			1st quarter month list
+				month div
+					month title
+			2nd quarter euro event list
+				absolute centered title
+				month div
+					event icon
+						event list popover
+			3rd quarter pacific event list
+				absolute centered title
+				month div
+					event icon
+						event list popover
+			4th quarter month list
+				month div
+					month title
+	
+	PACIFIC COLUMNS [month-width, fill to window bottom]
+		media bubble w/type outline
+			hover-over item name/type
+
+MODAL
+	modal white overlay background
+	modal container
+		modal content container
+			media thumbnail
+			left-hand close button
+			media type
+			media title
+			red HR line
+			media list
+				left-hand list item title
+				right-hand list item content
+				
+
+BACKGROUND
+	top-half euro image
+	bottom-half pacific image
+	fades on top & bottom that overlap all but header/sidepanel
+	
