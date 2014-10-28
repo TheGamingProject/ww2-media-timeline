@@ -59,20 +59,21 @@ To report any errors or omissions, please contact us at <span class="INFO-LINK">
 			
 			<div MEDIA-CONTAINER-TOP>
 				<div MONTH-LIST-WIDTH>
-					<a data-toggle="popover" title="2012 film" data-content="Saving Private Ryan">
-						<img class="MEDIA-THUMBNAIL MOVIE-BORDER">
-					</a> //align bottom (data-toggle="modal" data-target="#MEDIA-MODAL")
+					{{#each media-entry}}<a data-toggle="popover" title="{{media-entry.media.releasedyear}} {{media-entry.media.type}}" data-content="{{media-entry.title}}">
+						<img class="MEDIA-THUMBNAIL MOVIE-BORDER" src="img/{{media-entry.media.title}}@2x.png">
+					</a>{{/each}} //align bottom (data-toggle="modal" data-target="#MEDIA-MODAL")
 				</div>
 			</div>
 			
 			<div TIMELINE>
 				<div TOP-DATES>
 					<div MONTH-WIDTH>
-						<p class="TIMELINE-MONTH-TEXT">JAN<span class="TIMELINE-YEAR-TEXT">1941</span></p> //if YEAR exists
+						<p class="TIMELINE-MONTH-TEXT">JAN{{#if JANUARY of ANY YEAR}}<span class="TIMELINE-YEAR-TEXT">1941</span>{{/if}}</p>
 					</div MONTH-WIDTH>
 				</div TOP-DATES>
 				
 				<div TOP-EVENTS>
+					<div FIXED-TITLE><p>EUROPEAN THEATER</p></div>
 					<div MONTH-WIDTH>
 						<a href="EVENTS-POPOVER" data-container="body" data-toggle="popover" data-placement="top" data-content="1st: Event Text<br>2nd:More Event Text" //if MORE THAN 1 events exist >
 							<img src="img/EVENT-ICON@2x.png">
@@ -81,11 +82,12 @@ To report any errors or omissions, please contact us at <span class="INFO-LINK">
 				</div TOP-EVENTS>
 				
 				<div BOTTOM-EVENTS>
+					<div FIXED-TITLE><p>PACIFIC THEATER</p></div>
 					<div MONTH-WIDTH>
 						<a href="EVENTS-POPOVER" data-container="body" data-toggle="popover" data-placement="bottom" data-content="1st: Event Text<br>2nd:More Event Text" //if MORE THAN 1 events exist >
 							<img src="img/EVENT-ICON@2x.png">
 						</a> //if EVENT exists
-					</div MONTH-WIDTH>
+					</div MONTH-WIDTH> {{! Need to have specific month ids for media list }}
 				</div BOTTOM-EVENTS>
 				
 				<div BOTTOM-DATES>
@@ -105,7 +107,7 @@ To report any errors or omissions, please contact us at <span class="INFO-LINK">
 		</div>
 	</div MAINCONTENT>
 	
-	<div class="modal fade" id="MEDIA-MODAL" tabindex="-1" role="dialog" aria-labelledby="MEDIA-MODAL-LABEL" aria-hidden="true">
+	{{#each media-entry}}<div class="modal fade" id="{{media-entry.media.title}}-MODAL" tabindex="-1" role="dialog" aria-labelledby="{{media-entry.media.title}}-MODAL-LABEL" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<a class="close" data-dismiss="modal">
@@ -117,34 +119,35 @@ To report any errors or omissions, please contact us at <span class="INFO-LINK">
 				<h1></h1>
 				<hr>
 				<p class="MEDIAINFO-TITLES">
-					DATE<br>
-					LOCATION<br>
-					EVENT<br>
-					ALLIANCE<br>
-					MILITARY<br>
-					DIVISION<br>
+					{{#if }}DATE<br>{{/if}}
+					{{#if }}LOCATION<br>{{/if}}
+					{{#if }}EVENT<br>{{/if}}
+					{{#if }}ALLIANCE<br>{{/if}}
+					{{#if }}MILITARY<br>{{/if}}
+					{{#if }}DIVISION<br>{{/if}}
 				</p>
 				<p class="MEDIAINFO-VALUES">
-					6/6/1944<br>
-					Normandy, France<br>
-					Invasion of Normandy<br>
-					Allies<br>
-					US Army<br>
-					101st Airborne<br>
+					{{#if }}{{media-entry.depicted.date}}<br>{{/if}}
+					{{#if }}{{media-entry.depicted.location}}<br>{{/if}}
+					{{#if }}{{media-entry.depicted.event}}<br>{{/if}}
+					{{#if }}{{media-entry.depicted.alliance}}<br>{{/if}}
+					{{#if }}{{media-entry.depicted.military}}<br>{{/if}}
+					{{#if }}{{media-entry.depicted.division}}<br>{{/if}}
 				</p>
 				<hr>
 				<p class="MEDIAINFO-TITLES">
-					DATE<br>
-					LOCATION<br>
-					EVENT<br>
+					{{#if }}RELEASED<br>{{/if}}
+					{{#if }}METACRITIC<br>{{/if}}
+					{{#if }}ACCURACY<br>{{/if}}
 				</p>
 				<p class="MEDIAINFO-VALUES">
-					12/25/1999<br>
-					94/100<br>
-					Very Accurate<br>
+					{{#if }}{{media-entry.media.released}}<br>{{/if}}
+					{{#if }}{{media-entry.media.metacritic}}<br>{{/if}}
+					{{#if }}{{media-entry.depicted.accuracy}}<br>{{/if}}
 				</p>
+				{{! all values are only output IF value exists; need to figure out how line breaks (perhaps simply truncate) }}
 			</div>
 		</div>
-	</div>
+	</div>{{/each}}
 </body>
 </html>
