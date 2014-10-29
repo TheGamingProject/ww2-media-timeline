@@ -1,0 +1,143 @@
+<html>
+
+<head>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="./js/sheetsUtils.js"></script>
+<script type="text/javascript" src="./js/main.js"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+<style>
+div .border{
+    border:4px solid;
+    border-radius:25px;
+    background: #FFFFFF;
+    padding:5px 20px;
+}
+</style>
+
+</head>
+
+<body>
+	<script id="monthColumn" type="text/x-handlebars-template">
+		<div id="{{year}}-{{month}}-month-col" style="float:left;" class="border"> <!-- MONTH-LIST-WIDTH -->
+			{{month}} {{year}} <br>
+		</div>
+	</script>
+
+	<script id="mediumButton" type="text/x-handlebars-template">
+		<a id="{{uniqueId}}-POPOVER" type="button" data-container="body" data-toggle="popover" title="{{media.title}} {{media.episodechapter}}" data-content=" >>">
+			<img src="img/thumb-{{media.medium}}.png">
+		</a>
+		<br>
+	</script>
+
+	<script id="mediumPopover" type="text/x-handlebars-template">
+		<a data-toggle="modal" data-target="#{{uniqueId}}-MODAL"> &gt;&gt; </a>
+	</script>
+
+	<script id="mediumModal" type="text/x-handlebars-template">
+	<div class="modal fade" id="{{uniqueId}}-MODAL" tabindex="-1" role="dialog" aria-labelledby="{{media.title}}-MODAL-LABEL" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<a class="close" data-dismiss="modal">
+						<p class="navbar-toggle-text">CLOSE</p>
+						<img IMG-CLOSE class="navbar-toggle-icon"/>
+					</a>
+					<img class="MEDIA-THUMBNAIL MOVIE-BORDER">
+					<h2></h2>
+					<h1>{{medium.episode}}</h1>
+					<hr>
+					<p class="MEDIAINFO-TITLES">
+						{{#if depicted.date}}DATE<br>{{/if}}
+						{{#if depicted.location}}LOCATION<br>{{/if}}
+						{{#if depicted.event}}EVENT<br>{{/if}}
+						{{#if depicted.alliance}}ALLIANCE<br>{{/if}}
+						{{#if depicted.military}}MILITARY<br>{{/if}}
+						{{#if depicted.division}}DIVISION<br>{{/if}}
+					</p>
+					<p class="MEDIAINFO-VALUES">
+						{{#if depicted.date}}{{depicted.date}}<br>{{/if}}
+						{{#if depicted.location}}{{depicted.location}}<br>{{/if}}
+						{{#if depicted.event}}{{depicted.event}}<br>{{/if}}
+						{{#if depicted.alliance}}{{depicted.alliance}}<br>{{/if}}
+						{{#if depicted.military}}{{depicted.military}}<br>{{/if}}
+						{{#if depicted.division}}{{depicted.division}}<br>{{/if}}
+					</p>
+					<hr>
+					<p class="MEDIAINFO-TITLES">
+						{{#if media.released}}RELEASED<br>{{/if}}
+						{{#if media.metacritic}}METACRITIC<br>{{/if}}
+						{{#if depicted.accuracy}}ACCURACY<br>{{/if}}
+					</p>
+					<p class="MEDIAINFO-VALUES">
+						{{#if media.released}}{{media.released}}<br>{{/if}}
+						{{#if media.metacritic}}{{media.metacritic}}<br>{{/if}}
+						{{#if depicted.accurac}}{{depicted.accuracy}}<br>{{/if}}
+					</p>
+					{{! all values are only output IF value exists; need to figure out how line breaks (perhaps simply truncate) }}
+				</div>
+			</div>
+		</div>
+	</script>
+
+
+    <script id="aMedia" type="text/x-handlebars-template">
+    	<div class="border">
+			Title: <b>{{title}}</b> <br>
+			Episode/Chapter: {{episodechapter}} <br>
+			Medium: {{medium}} <br>
+			Release Date: {{releasedate}} <br>
+			<br>
+			Theater: {{theater}} <br>
+			Dates: {{datesdepicted}} <br>
+			Events: {{events}} <br>
+			Locations: {{locations}} <br>
+			Sides: {{sides}} <br>
+			Unit Division: {{unitdivision}} <br>
+			<a href="{{wikipage}}">wikipage</a>
+		</div>
+	</script>
+
+	<script id="aMediaButtons" type="text/x-handlebars-template">
+		{{#each media-entry}}
+		<a data-toggle="popover" title="{{media.releasedyear}} {{media.type}}" data-content="{{title}}">
+			<img class="MEDIA-THUMBNAIL MOVIE-BORDER" src="img/{{media.title}}@2x.png">
+		</a>
+		{{/each}} //align bottom (data-toggle="modal" data-target="#MEDIA-EPISODECHAPTER-MODAL")
+	</script>
+
+	The stuff:
+    <div id="contentNo">
+
+    </div>
+
+<div id="MAINCONTENT" class="border" style="overflow-x: scroll; width:9000;">
+	<div id="BACKGROUND" class="border"> <!-- this is where the screen-edge fadeout is styled -->
+		<!-- <div BACKGROUND-TOP></div> -->
+		<!-- <div BACKGROUND-BOTTOM></div>-->
+		
+		<div id="MEDIA-CONTAINER-TOP" class="border row">
+			<!-- loop months here -->
+			
+		</div>
+		
+		<div id="TIMELINE" class="border">
+		timeline
+		</div>
+		
+		<div id="MEDIA-CONTAINER-BOTTOM" class="border">
+		bootom
+		</div>
+	</div>
+</div>
+
+<div id="modalArea"></div>
+
+</body>
+
+</html>

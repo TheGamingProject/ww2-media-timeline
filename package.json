@@ -1,0 +1,19 @@
+{
+  "name": "ww2-media-timeline",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thegamingproject/ww2-media-timeline"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/thegamingproject/ww2-media-timeline/issues"
+  },
+  "homepage": "https://github.com/thegamingproject/ww2-media-timeline",
+  "devDependencies": {
+    "broccoli": "^0.13.2"
+  }
+}
