@@ -1,0 +1,98 @@
+// VARIABLES
+
+// Colors
+@color-red: ;
+@color-orange: ;
+@color-yellow: ;
+@color-green: ;
+@color-blue: ;
+@color-black: ;
+@color-gray: ;
+@color-white: ;
+
+// Text
+@font-header: ;
+@font-sans: ;
+@font-serif: ;
+
+
+// NAVBAR
+
+div.navbar {
+	width:100%;
+	height:106px;
+	margin-bottom: 0;
+	padding-left: 0;
+	list-style: none;
+	display:block;
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	&:extend(.clearfix all);
+}
+	NAVBAR-CONTENT-CONTAINER div {
+		padding: 18px 10px 0 10px;
+		margin: 0;
+	}
+		NAV-TOGGLE-LEFT div {
+			float: left;
+		}
+			IMG-TOGGLE-ICON img {
+				width: 8px;
+				height: 8px;
+				margin-right: 2px;
+			}
+			NAV-TOGGLE-TEXT text {
+				font-family: @font-header;
+				font-weight: 100;
+				letter-spacing: 2px;
+			}
+		NAV-TOGGLE-RIGHT div {
+			float: right;
+		}
+		LOGO img {
+			width: 184px;
+			height: 54px;
+			margin: 0 auto;
+		}
+		
+INFOPANEL div
+	INFOPANEL-CONTENT-CONTAINER div
+		INFO-PANEL-TEXT text
+		INFO-PANEL-TEXT-BOLD text
+		INFO-PANEL-TEXT-ITALIC text
+		INFO-PANEL-TEXT-LINK text
+
+MAINCONTENT div
+	BACKGROUND div
+		BACKGROUND-TOP div
+		BACKGROUND-BOTTOM div
+	MEDIA-CONTAINER-TOP div
+	MEDIA-CONTAINER-BOTTOM div
+		MONTH-LIST-WIDTH div
+			MEDIA-THUMBNAIL img
+				BORDER-MOVIE
+				BORDER-TELEVISION
+				BORDER-VIDEOGAME
+				
+	TIMELINE div
+		TOP-DATES div
+		BOTTOM-DATES div
+			MONTH-WIDTH div
+				TIMELINE-MONTH-TEXT
+				TIMELINE-YEAR-TEXT
+		TOP-EVENTS div
+		BOTTOM-EVENTS div
+			FIXED-TITLE div
+			MONTH-WIDTH div
+				EVENTS-POPOVER
+				EVENTS-ICON
+
+MODAL div
+	MODAL-DIALOG div
+		MODAL-CONTENT div
+			MODAL-MEDIA-THUMBNAIL img
+			MEDIA-TITLES text
+			MEDIA-VALUES text
+			MODAL.HR
