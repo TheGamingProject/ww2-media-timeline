@@ -1,24 +1,26 @@
 // VARIABLES
 
 // Colors
-@color-red: ;
-@color-orange: ;
-@color-yellow: ;
-@color-green: ;
-@color-blue: ;
-@color-black: ;
-@color-gray: ;
-@color-white: ;
+@color-red: #b06666;
+@color-orange: #b08d66;
+@color-yellow: #a9b066;
+@color-green: #8caa88;
+@color-blue: #34607c;
+@color-black: #0d0d0d;
+@color-gray: #b3b3b3;
+@color-white: #ffffff;
+@color-dates: #0d0d0d;
+@color-links: #900605;
 
 // Text
-@font-header: ;
-@font-sans: ;
-@font-serif: ;
+@font-header: 'PT Sans', 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+@font-sans: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+@font-serif: 'PT Serif', Georgia, 'Times New Roman', Times, serif;
 
 
 // NAVBAR
 
-div.navbar {
+.navbar {
 	width:100%;
 	height:106px;
 	margin-bottom: 0;
@@ -31,60 +33,124 @@ div.navbar {
 	left: 0;
 	&:extend(.clearfix all);
 }
-	NAVBAR-CONTENT-CONTAINER div {
+	.navbar-content-container {
 		padding: 18px 10px 0 10px;
 		margin: 0;
 	}
-		NAV-TOGGLE-LEFT div {
+		.nav-toggle-left {
 			float: left;
 		}
-			IMG-TOGGLE-ICON img {
+			img.img-toggle-icon {
 				width: 8px;
 				height: 8px;
 				margin-right: 2px;
 			}
-			NAV-TOGGLE-TEXT text {
+			p.nav-toggle-text {
 				font-family: @font-header;
 				font-weight: 100;
 				letter-spacing: 2px;
+				&.red {color: @color-red;}
+				&.orange {color: @color-orange;}
+				&.yellow {color: @color-yellow;}
+				&.gray {color: @color-gray;}
 			}
-		NAV-TOGGLE-RIGHT div {
+		.nav-toggle-right {
 			float: right;
 		}
-		LOGO img {
+		img.logo {
 			width: 184px;
 			height: 54px;
 			margin: 0 auto;
 		}
 		
-INFOPANEL div
-	INFOPANEL-CONTENT-CONTAINER div
-		INFO-PANEL-TEXT text
-		INFO-PANEL-TEXT-BOLD text
-		INFO-PANEL-TEXT-ITALIC text
-		INFO-PANEL-TEXT-LINK text
+// INFOPANEL
+		
+.infopanel {
+	width: 200px;
+	height: 100%;
+	display:block;
+	position: fixed;
+	top: 0;
+	left: -200px;
+	border-right: 1px solid @color-gray;
+}
+	.infopanel-content-container {
+		margin: auto 20px;
+		vertical-align: center;
+		font-family: @font-sans;
+	}
+		.infopanel-text {
+			font-weight: 200;
+			color: @color-black;
+			line-height: 20px;
+			font-size: 14px;
+			&.bold {font-weight: 800;}
+			&.italic {font-style: italic;}
+			&.link {color: @color-links;}
+		}
 
-MAINCONTENT div
-	BACKGROUND div
-		BACKGROUND-TOP div
-		BACKGROUND-BOTTOM div
-	MEDIA-CONTAINER-TOP div
-	MEDIA-CONTAINER-BOTTOM div
-		MONTH-LIST-WIDTH div
+.maincontent {
+	overflow-x: scroll;
+	width: inherit;
+	height: 100%;
+}
+	.background {
+		width: 100%;
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 100%;
+	}
+		background-top {
+			height: 50%;
+			width: 100%;
+			background: url("img/background-top.jpg") #f1f1f1 center fixed;
+			margin: 0px;
+		}
+		background-bottom {
+			height: 50%;
+			width: 100%;
+			background: url("img/background-top.jpg") #f1f1f1 center fixed;
+			margin: 0px;
+		}
+	MEDIA-CONTAINER-TOP div {
+		vertical-align: bottom;
+	}
+	MEDIA-CONTAINER-BOTTOM div {
+		vertical-align: top;
+	}
+		MONTH-LIST-WIDTH div {
+			width: 40px;
+			height: 100%;
+			margin: 0;
+			padding: 0;
+			overflow-y: scroll;
+		}
 			MEDIA-THUMBNAIL img
 				BORDER-MOVIE
 				BORDER-TELEVISION
 				BORDER-VIDEOGAME
 				
 	TIMELINE div
-		TOP-DATES div
-		BOTTOM-DATES div
+		TOP-DATES div {
+			width: inherit;
+		}
+		BOTTOM-DATES div {
+			width: inherit;
+		}
 			MONTH-WIDTH div
 				TIMELINE-MONTH-TEXT
 				TIMELINE-YEAR-TEXT
-		TOP-EVENTS div
-		BOTTOM-EVENTS div
-			FIXED-TITLE div
+		TOP-EVENTS div {
+			width: inherit;
+		}
+		BOTTOM-EVENTS div {
+			width: inherit;
+		}
+			FIXED-TITLE div {
+				width: 100%;
+			}
 			MONTH-WIDTH div
 				EVENTS-POPOVER
 				EVENTS-ICON
@@ -96,3 +162,6 @@ MODAL div
 			MEDIA-TITLES text
 			MEDIA-VALUES text
 			MODAL.HR
+			
+			
+// background: linear-gradient(180deg, red, white);
