@@ -4,14 +4,14 @@ A webapp that organizes visual depictions of World War 2 by the events/dates the
 
 Laundry List
 ------------
-[ ] Export Navbar assets
-[ ] Navbar styling
-[ ] Info panel assets
-[ ] Info panel styling
-[ ] Timeline assets
-[ ] Timeline events json
-[ ] Timeline events styling
-[ ] Thumbnail assets
-[ ] Month list styling
-[ ] Fill in the JSON blanks
-[ ] Get Metacritic/Accuracy scores
+[ ] Export Navbar assets<br>
+[ ] Navbar styling<br>
+[ ] Info panel assets<br>
+[ ] Info panel styling<br>
+[ ] Timeline assets<br>
+[ ] Timeline events json<br>
+[ ] Timeline events styling<br>
+[ ] Thumbnail assets<br>
+[ ] Month list styling<br>
+[ ] Fill in the JSON blanks<br>
+[ ] Get Metacritic/Accuracy scores<br>
