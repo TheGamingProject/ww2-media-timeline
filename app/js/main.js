@@ -83,7 +83,7 @@ $(window).load(function() {
 
     var mediumButtonTemplateScript = $("#mediumButton").html(),
       mediumButtonTemplate = Handlebars.compile(mediumButtonTemplateScript),
-      mediumModalTemplateScript = $("#mediumModal").html(),
+      mediumModalTemplateScript = $("#modalToggle").html(),
       mediumModalTemplate = Handlebars.compile(mediumModalTemplateScript),
       mediumPopoverTemplateScript = $("#mediumPopover").html(),
       mediumPopoverTemplate = Handlebars.compile(mediumPopoverTemplateScript);
@@ -98,7 +98,7 @@ $(window).load(function() {
       }
 
       var dateColId = '#' + date.year + "-" + date.month + "-month-col",
-        popoverId = '#' + row.uniqueId + '-POPOVER';
+        popoverId = '#' + row.uniqueId + '-popover';
 
       console.log(dateColId);
       console.log(popoverId);

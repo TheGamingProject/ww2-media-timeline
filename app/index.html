@@ -6,10 +6,11 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
-<script type="text/javascript" src="./js/sheetsUtils.js"></script>
-<script type="text/javascript" src="./js/main.js"></script>
+<script type="text/javascript" src="js/sheetsUtils.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/rough-styling.css">
 
 <style>
 div .border{
@@ -29,7 +30,7 @@ div .border{
 		</div>
 	</script>
 
-	<script id="mediumButton" type="text/x-handlebars-template">
+	<script id="modalToggle" type="text/x-handlebars-template">
 		<a id="{{uniqueId}}-POPOVER" type="button" data-container="body" data-toggle="popover" title="{{media.title}} {{media.episodechapter}}" data-content=" >>">
 			<img src="img/thumb-{{media.medium}}.png">
 		</a>
@@ -85,7 +86,6 @@ div .border{
 		</div>
 	</script>
 
-
     <script id="aMedia" type="text/x-handlebars-template">
     	<div class="border">
 			Title: <b>{{title}}</b> <br>
@@ -106,15 +106,39 @@ div .border{
 	<script id="aMediaButtons" type="text/x-handlebars-template">
 		{{#each media-entry}}
 		<a data-toggle="popover" title="{{media.releasedyear}} {{media.type}}" data-content="{{title}}">
-			<img class="MEDIA-THUMBNAIL MOVIE-BORDER" src="img/{{media.title}}@2x.png">
+			<img class="media-thumbnail border-{{media.type}}" src="img/{{media.title}}@2x.png">
 		</a>
-		{{/each}} //align bottom (data-toggle="modal" data-target="#MEDIA-EPISODECHAPTER-MODAL")
+		{{/each}}
 	</script>
 
 	The stuff:
     <div id="contentNo">
 
     </div>
+    
+    <div class="navbar">
+		<div class="navbar-content-container">
+			<div class="nav-toggle-left">
+				<img img-info class="navbar-toggle-icon"/>
+				<p class="navbar-toggle-text">INFO</p>
+			</div>
+			<div class="logo">
+				<img src="logo@2x.png">
+			</div>
+			<div class="nav-toggle-right">
+				<p class="navbar-toggle-text">MOVIES</p>
+				<img img-info class="navbar-toggle-icon"/>
+			</div>
+			<div class="nav-toggle-right">
+				<p class="navbar-toggle-text">TELEVISION</p>
+				<img img-info class="navbar-toggle-icon"/>
+			</div>
+			<div class="nav-toggle-right">
+				<p class="navbar-toggle-text">VIDEOGAMES</p>
+				<img img-info class="navbar-toggle-icon"/>
+			</div>
+		</div>
+	</div>
 
 <div id="MAINCONTENT" class="border" style="overflow-x: scroll; width:9000;">
 	<div id="BACKGROUND" class="border"> <!-- this is where the screen-edge fadeout is styled -->
