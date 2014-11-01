@@ -1,0 +1,9 @@
+{
+  "name": "ww2-media-timeline",
+  "dependencies": {
+    "handlebars": "~1.1.2",
+    "jquery": "~1.9.1",
+    "bootstrap": "~3.3.0",
+    "lodash": "~2.4.1"
+  }
+}

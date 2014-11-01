@@ -6,27 +6,55 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
-<script type="text/javascript" src="js/placementUtils.js"></script>
-<script type="text/javascript" src="js/sheetsUtils.js"></script>
-<script type="text/javascript" src="js/main.js"></script>
+<script src="assets/app.js"></script>
+<link href="assets/app.css" rel="stylesheet" type="text/css" media="all">
 
 <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,600,300italic|PT+Sans+Narrow|PT+Serif:400,400italic' rel='stylesheet' type='text/css'>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="css/rough-styling.css">
 
 
 </head>
 
 <body>
-	
-	<script id="monthColumn" type="text/x-handlebars-template">
+	<!-- HANDLEBARS TEMPLATES -->
+	<script id="monthColumn-old" type="text/x-handlebars-template">
 		<div id="{{year}}-{{month}}-month-col" style="float:left;" class="border"> <!-- MONTH-LIST-WIDTH -->
 			{{month}} {{year}} <br>
 		</div>
 	</script> 
 
-	<script id="modalToggle" type="text/x-handlebars-template">
+	<script id="monthColumn" type="text/x-handlebars-template">
+		<div class="month-width-column">
+			<div class="column-scroll-container top">
+				<div id="{{year}}-{{month}}-month-col-top" class="column-scroll-content top">
+
+				</div>
+			</div>
+			<div class="column-scroll-container bottom">
+				<div id="{{year}}-{{month}}-month-col-bot" class="column-scroll-content bottom">
+
+				</div>
+			</div>
+			
+			<div class="timeline">
+				<div class="timeline-date-container top">
+					<p class="date top">{{monthShort}}<b>{{year}}</b><p>
+				</div>
+				<div class="timeline-event-container top">
+					<img src="img/event-air@2x.png">
+				</div>
+				<div class="timeline-event-container bottom">
+				
+				</div>
+				<div class="timeline-date-container bottom">
+					<p class="date bottom"><b>{{year}}</b>{{monthShort}}<p>
+				</div>
+			</div>
+		</div>
+	</script>
+
+	<script id="mediumButton" type="text/x-handlebars-template">
 		<a id="{{uniqueId}}-POPOVER" type="button" data-container="body" data-toggle="popover" title="{{media.title}} {{media.episodechapter}}" data-content=" >>">
 			<img src="img/thumb-{{media.medium}}.png">
 		</a>
@@ -82,30 +110,7 @@
 		</div>
 	</script> 
 
-    <script id="aMedia" type="text/x-handlebars-template">
-    	<div class="border">
-			Title: <b>{{title}}</b> <br>
-			Episode/Chapter: {{episodechapter}} <br>
-			Medium: {{medium}} <br>
-			Release Date: {{releasedate}} <br>
-			<br>
-			Theater: {{theater}} <br>
-			Dates: {{datesdepicted}} <br>
-			Events: {{events}} <br>
-			Locations: {{locations}} <br>
-			Sides: {{sides}} <br>
-			Unit Division: {{unitdivision}} <br>
-			<a href="{{wikipage}}">wikipage</a>
-		</div>
-	</script> 
-
-	<script id="aMediaButtons" type="text/x-handlebars-template">
-		{{#each media-entry}}
-		<a data-toggle="popover" title="{{media.releasedyear}} {{media.type}}" data-content="{{title}}">
-			<img class="media-thumbnail border-{{media.type}}" src="img/{{media.title}}@2x.png">
-		</a>
-		{{/each}}
-	</script> 
+	<!-- END HANDLEBARS TEMPLATES -->
 
     <div id="contentNo">
 
@@ -149,7 +154,7 @@ To report any errors or omissions, please contact us at <a href="mailto:ww2@tgp.
 		</div>
 	</div>
 
-	<div class="maincontent">
+	<div id="main" class="maincontent">
 		<div class="background">
 			<div class="background-top"></div>
 			<div class="background-bottom"></div>
