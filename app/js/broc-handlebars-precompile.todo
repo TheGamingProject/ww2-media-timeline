@@ -1,0 +1,3 @@
+call and concat 
+  - handlebars in.hbs -f out.js
+  - all out.js

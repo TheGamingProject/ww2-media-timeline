@@ -3,11 +3,19 @@ var compileLess = require('broccoli-less-single'),
   mergeTrees  = require('broccoli-merge-trees'),
   pickFiles   = require('broccoli-static-compiler'),
   uglifyJs    = require('broccoli-uglify-js'),
-  app = 'app',
+  Handlebars = require('handlebars'),
+  broccoliHandlebars = require('broccoli-handlebars');
+
+var app = 'app',
   appCss,
   appHtml,
   appJs,
-  appImg;
+  appImg,
+  appHbs;
+
+var env = require('broccoli-env').getEnv();
+var IS_PRODUCTION_ENV = env === 'production';
+
 
 /** 
  * move the index.html file from the project /app folder
@@ -40,5 +48,20 @@ appImg = pickFiles(app, {
 
 appCss = compileLess(app, 'styles/app.less', '/assets/app.css');
 
+/**
+ *  handlebars
+ */
+
+appHbs = pickFiles(app, {
+  srcDir  : '/',
+  files   : ['**/*.hbs'],
+  destDir : '/'
+});
+
+appHbs = precompileHandlebarsConcat(appHbs, {
+  outputFile: '/assets/hbs.js'
+});
+
+
 // merge HTML, JavaScript and CSS trees into a single tree and export it
-module.exports = mergeTrees([appHtml, appJs, appCss, appImg]);
+module.exports = mergeTrees([appHtml, appJs, appCss, appImg, appHbs]);
