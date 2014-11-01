@@ -197,12 +197,12 @@
 		height: 160px;
 		width: 40px;
 		margin: 0;
+		margin-top: -80px;
 		padding: 0;
-		background: red;
 		z-index: 10;
 	}
 		.timeline-date-container {
-			position:relative;
+			position: relative;
 			height: 40px;
 			width: auto;
 			> .date {
@@ -219,7 +219,9 @@
 			top: -5px;
 			&.top {background: @color-blue;}
 			&.bottom {background: @color-green;}
-			> .event {
+			> img {
+				width: 24px;
+				height: 24px;
 				display: block;
 				margin: auto;
 			}
