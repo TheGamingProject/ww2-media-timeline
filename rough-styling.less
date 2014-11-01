@@ -36,16 +36,17 @@
 		padding: 18px 10px 0 10px;
 		margin: 0;
 	}
-		.nav-toggle-left {
+		.navbar-toggle-left {
 			float: left;
 		}
-			img.img-toggle-icon {
+			img.navbar-toggle-icon {
 				width: 8px;
 				height: 8px;
 				margin-right: 2px;
+				float: right;
 			}
-			p.nav-toggle-text {
-				font-family: @font-serif;
+			p.navbar-toggle-text {
+				font-family: @font-sans;
 				font-weight: 200;
 				letter-spacing: 2px;
 				&.red {color: @color-red;}
@@ -53,13 +54,15 @@
 				&.yellow {color: @color-yellow;}
 				&.gray {color: @color-gray;}
 			}
-		.nav-toggle-right {
+		.navbar-toggle-right {
 			float: right;
 		}
-		img.logo {
-			width: 184px;
-			height: 54px;
+		.navbar-logo {
 			margin: 0 auto;
+			> img {
+				width: 184px;
+				height: 54px;
+			}
 		}
 		
 // INFOPANEL
