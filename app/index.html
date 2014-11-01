@@ -1,27 +1,21 @@
 <html>
 
 <head>
+<title> ww2 is cool </title>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
-<script type="text/javascript" src="js/sheetsUtils.js"></script>
-<script type="text/javascript" src="js/main.js"></script>
 
 <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,600,300italic|PT+Sans+Narrow|PT+Serif:400,400italic' rel='stylesheet' type='text/css'>
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="css/rough-styling.css">
 
-<style>
-div .border{
-    border:4px solid;
-    border-radius:25px;
-    background: #FFFFFF;
-    padding:5px 20px;
-}
-</style>
+<script src="assets/app.js"></script>
+<link href="assets/app.css" rel="stylesheet" type="text/css" media="all">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
 
 </head>
 
@@ -32,8 +26,8 @@ div .border{
 		</div>
 	</script>
 
-	<script id="modalToggle" type="text/x-handlebars-template">
-		<a id="{{uniqueId}}-POPOVER" type="button" data-container="body" data-toggle="popover" title="{{media.title}} {{media.episodechapter}}" data-content=" >>">
+	<script id="mediumButton" type="text/x-handlebars-template">
+		<a id="{{uniqueId}}-popover" type="button" data-container="body" data-toggle="popover" title="{{media.title}} {{media.episodechapter}}" data-content=" >>">
 			<img src="img/thumb-{{media.medium}}.png">
 		</a>
 		<br>

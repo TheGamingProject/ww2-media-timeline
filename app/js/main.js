@@ -83,7 +83,7 @@ $(window).load(function() {
 
     var mediumButtonTemplateScript = $("#mediumButton").html(),
       mediumButtonTemplate = Handlebars.compile(mediumButtonTemplateScript),
-      mediumModalTemplateScript = $("#modalToggle").html(),
+      mediumModalTemplateScript = $("#mediumModal").html(),
       mediumModalTemplate = Handlebars.compile(mediumModalTemplateScript),
       mediumPopoverTemplateScript = $("#mediumPopover").html(),
       mediumPopoverTemplate = Handlebars.compile(mediumPopoverTemplateScript);
