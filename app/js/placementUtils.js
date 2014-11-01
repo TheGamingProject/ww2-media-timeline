@@ -1,0 +1,1 @@
+$(function() {$('.timeline').css({'margin-top' : -$(this).height()/2});});

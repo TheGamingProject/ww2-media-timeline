@@ -11,6 +11,7 @@
   left: 0;
   background: linear-gradient(to bottom, #f1f1f1 0%, rgba(241, 241, 241, 0) 100%);
   border: none;
+  z-index: 10;
 }
 .navbar-content-container {
   padding: 18px 10px 0 10px;
@@ -129,40 +130,91 @@
   background-size: cover;
   margin: 0px;
 }
-.media-container-top div {
-  vertical-align: bottom;
-}
-.media-container-bottom div {
-  vertical-align: top;
-}
-.month-list-width div {
-  float: left;
-  width: 40px;
+.month-width-column {
+  width: 40px !important;
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow-y: scroll;
-  display: table;
+  float: left;
 }
-.month-list-width div.top {
-  vertical-align: bottom;
+.column-scroll-container {
+  height: 50%;
+  width: 40px;
+  z-index: 1;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
 }
-.month-list-width div.bottom {
-  vertical-align: top;
+.column-scroll-content {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 100%;
+  z-index: 1;
 }
-img.media-thumbnail {
-  display: table-cell;
+.column-scroll-content.top {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+.column-scroll-content.bottom {
+  padding-top: 60px;
+  padding-bottom: 30px;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+.media-thumbnail {
   margin: 2px 4px;
   width: 32px;
   height: 32px;
   border-radius: 16px;
 }
-img.media-thumbnail.border-movie {
+.media-thumbnail.border-movie {
   border: 1px solid #b06666;
 }
-img.media-thumbnail.border-television {
+.media-thumbnail.border-television {
   border: 1px solid #b08d66;
 }
-img.media-thumbnail.border-videogame {
+.media-thumbnail.border-videogame {
   border: 1px solid #a9b066;
+}
+.timeline {
+  position: absolute;
+  top: 50%;
+  height: 160px;
+  width: 40px;
+  margin: 0;
+  padding: 0;
+  background: red;
+  z-index: 10;
+}
+.timeline-date-container {
+  position: relative;
+  height: 40px;
+  width: auto;
+}
+.timeline-date-container > .date {
+  font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  -webkit-transform: rotate(270deg);
+  margin-top: 21px;
+  color: #0d0d0d;
+}
+.timeline-event-container {
+  position: relative;
+  height: 24px;
+  width: auto;
+  top: -5px;
+}
+.timeline-event-container.top {
+  background: #34607c;
+}
+.timeline-event-container.bottom {
+  background: #8caa88;
+}
+.timeline-event-container > .event {
+  display: block;
+  margin: auto;
 }
