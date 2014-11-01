@@ -1,18 +1,15 @@
 <html>
 
 <head>
-<title> ww2 is cool </title>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
-
-<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,600,300italic|PT+Sans+Narrow|PT+Serif:400,400italic' rel='stylesheet' type='text/css'>
-
-
 <script src="assets/app.js"></script>
 <link href="assets/app.css" rel="stylesheet" type="text/css" media="all">
+
+<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,600,300italic|PT+Sans+Narrow|PT+Serif:400,400italic' rel='stylesheet' type='text/css'>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 
@@ -20,22 +17,53 @@
 </head>
 
 <body>
-	<script id="monthColumn" type="text/x-handlebars-template">
+	<!-- HANDLEBARS TEMPLATES -->
+	<script id="monthColumn-old" type="text/x-handlebars-template">
 		<div id="{{year}}-{{month}}-month-col" style="float:left;" class="border"> <!-- MONTH-LIST-WIDTH -->
 			{{month}} {{year}} <br>
+		</div>
+	</script> 
+
+	<script id="monthColumn" type="text/x-handlebars-template">
+		<div class="month-width-column">
+			<div class="column-scroll-container top">
+				<div id="{{year}}-{{month}}-month-col-top" class="column-scroll-content top">
+
+				</div>
+			</div>
+			<div class="column-scroll-container bottom">
+				<div id="{{year}}-{{month}}-month-col-bot" class="column-scroll-content bottom">
+
+				</div>
+			</div>
+			
+			<div class="timeline">
+				<div class="timeline-date-container top">
+					<p class="date top">{{monthShort}}<b>{{year}}</b><p>
+				</div>
+				<div class="timeline-event-container top">
+					<img src="img/event-air@2x.png">
+				</div>
+				<div class="timeline-event-container bottom">
+				
+				</div>
+				<div class="timeline-date-container bottom">
+					<p class="date bottom"><b>{{year}}</b>{{monthShort}}<p>
+				</div>
+			</div>
 		</div>
 	</script>
 
 	<script id="mediumButton" type="text/x-handlebars-template">
-		<a id="{{uniqueId}}-popover" type="button" data-container="body" data-toggle="popover" title="{{media.title}} {{media.episodechapter}}" data-content=" >>">
+		<a id="{{uniqueId}}-POPOVER" type="button" data-container="body" data-toggle="popover" title="{{media.title}} {{media.episodechapter}}" data-content=" >>">
 			<img src="img/thumb-{{media.medium}}.png">
 		</a>
 		<br>
-	</script>
+	</script> 
 
 	<script id="mediumPopover" type="text/x-handlebars-template">
 		<a data-toggle="modal" data-target="#{{uniqueId}}-MODAL"> &gt;&gt; </a>
-	</script>
+	</script> 
 
 	<script id="mediumModal" type="text/x-handlebars-template">
 	<div class="modal fade" id="{{uniqueId}}-MODAL" tabindex="-1" role="dialog" aria-labelledby="{{media.title}}-MODAL-LABEL" aria-hidden="true">
@@ -80,81 +108,152 @@
 				</div>
 			</div>
 		</div>
-	</script>
+	</script> 
 
-    <script id="aMedia" type="text/x-handlebars-template">
-    	<div class="border">
-			Title: <b>{{title}}</b> <br>
-			Episode/Chapter: {{episodechapter}} <br>
-			Medium: {{medium}} <br>
-			Release Date: {{releasedate}} <br>
-			<br>
-			Theater: {{theater}} <br>
-			Dates: {{datesdepicted}} <br>
-			Events: {{events}} <br>
-			Locations: {{locations}} <br>
-			Sides: {{sides}} <br>
-			Unit Division: {{unitdivision}} <br>
-			<a href="{{wikipage}}">wikipage</a>
-		</div>
-	</script>
+	<!-- END HANDLEBARS TEMPLATES -->
 
-	<script id="aMediaButtons" type="text/x-handlebars-template">
-		{{#each media-entry}}
-		<a data-toggle="popover" title="{{media.releasedyear}} {{media.type}}" data-content="{{title}}">
-			<img class="media-thumbnail border-{{media.type}}" src="img/{{media.title}}@2x.png">
-		</a>
-		{{/each}}
-	</script>
-
-	The stuff:
     <div id="contentNo">
 
     </div>
     
     <div class="navbar">
 		<div class="navbar-content-container">
-			<div class="nav-toggle-left">
-				<img img-info class="navbar-toggle-icon"/>
-				<p class="navbar-toggle-text">INFO</p>
+			<ul class="navbar-toggle-left">
+				<li class="navbar-toggle-text"><img src="img/toggle-info@2x.png" class="navbar-toggle-icon"/>INFO</li>
+			</ul>
+			<div class="navbar-logo">
+				<img src="img/logo@2x.png">
 			</div>
-			<div class="logo">
-				<img src="logo@2x.png">
-			</div>
-			<div class="nav-toggle-right">
-				<p class="navbar-toggle-text">MOVIES</p>
-				<img img-info class="navbar-toggle-icon"/>
-			</div>
-			<div class="nav-toggle-right">
-				<p class="navbar-toggle-text">TELEVISION</p>
-				<img img-info class="navbar-toggle-icon"/>
-			</div>
-			<div class="nav-toggle-right">
-				<p class="navbar-toggle-text">VIDEOGAMES</p>
-				<img img-info class="navbar-toggle-icon"/>
-			</div>
+			<ul class="navbar-toggle-right">
+				<li class="navbar-toggle-text red">MOVIES<img src="img/toggle-red@2x.png" class="navbar-toggle-icon"/></li>
+				<li class="navbar-toggle-text orange">TELEVISION<img src="img/toggle-orange@2x.png" class="navbar-toggle-icon"/></li>
+				<li class="navbar-toggle-text yellow">VIDEOGAMES<img src="img/toggle-yellow@2x.png" class="navbar-toggle-icon"/></li>
+				<li class="navbar-toggle-text gray">SHOW ALL<img src="img/toggle-gray@2x.png" class="navbar-toggle-icon"/></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div class="infopanel">
+		<ul class="navbar-toggle-right">
+				<li class="navbar-toggle-text gray">CLOSE<img src="img/toggle-close@2x.png" class="navbar-toggle-icon"/></li>
+			</ul>
+		<div class="infopanel-content-container">
+			<p class="infopanel-text">
+				Welcome to <b>Visual Depictions of World War II</b>, a timeline that orders movies, television shows, and videogames by the dates in history they depict.
+<br><br>
+Created by
+<br><a href="http://twitter.com/altonchaney" target="_blank">@altonchaney</a>
+<br><a href="http://twitter.com/NIKpoklitar" target="_blank">@NIKpoklitar</a>
+<br><br>
+Consider <a href="http://tgp.io/ww2/donations">donating</a> if you&#8217;d like to see more tools like this.
+<br><br>
+To report any errors or omissions, please contact us at <a href="mailto:ww2@tgp.io">ww2@tgp.io</a>
+<br><br>
+<a href="http://tgp.io/ww2/sources-credits"><i>Sources / Credits</i></a>
+			</p>
 		</div>
 	</div>
 
-<div id="MAINCONTENT" class="border" style="overflow-x: scroll; width:9000;">
-	<div id="BACKGROUND" class="border"> <!-- this is where the screen-edge fadeout is styled -->
-		<!-- <div BACKGROUND-TOP></div> -->
-		<!-- <div BACKGROUND-BOTTOM></div>-->
+	<div id="main" class="maincontent">
+		<div class="background">
+			<div class="background-top"></div>
+			<div class="background-bottom"></div>
+		</div>
 		
-		<div id="MEDIA-CONTAINER-TOP" class="border row">
-			<!-- loop months here -->
+		<div class="month-width-column">
+			<div class="column-scroll-container top">
+				<div class="column-scroll-content top">
+					<a class="europe" type="button" data-container="body" data-toggle="popover" title="2014 film" data-content="Saving Private Ryan">
+						<img class="media-thumbnail border-movie" src="img/thumb-movie.png">
+					</a><br>
+					<a class="europe" data-toggle="popover" title="2014 film" data-content="Saving Private Ryan">
+						<img class="media-thumbnail border-movie" src="img/thumb-movie.png">
+					</a><br>
+					<a class="europe" data-toggle="popover" title="2014 film" data-content="Saving Private Ryan">
+						<img class="media-thumbnail border-movie" src="img/thumb-movie.png">
+					</a><br>
+					<a class="europe" data-toggle="popover" title="2014 film" data-content="Saving Private Ryan">
+						<img class="media-thumbnail border-movie" src="img/thumb-movie.png">
+					</a><br>
+					<a class="europe"  type="button" data-container="body" data-toggle="popover" title="2014 film" data-content="Saving Private Ryan">
+						<img class="media-thumbnail border-movie" src="img/thumb-movie.png">
+					</a><br>
+					<a class="europe" data-toggle="popover" title="2014 film" data-content="Saving Private Ryan">
+						<img class="media-thumbnail border-movie" src="img/thumb-movie.png">
+					</a><br>
+					<a class="europe" data-toggle="popover" title="2014 film" data-content="Saving Private Ryan">
+						<img class="media-thumbnail border-movie" src="img/thumb-movie.png">
+					</a><br>
+					<a class="europe" data-toggle="popover" title="2014 film" data-content="Saving Private Ryan">
+						<img class="media-thumbnail border-movie" src="img/thumb-movie.png">
+					</a><br>
+					<a class="europe" data-toggle="popover" title="2014 film" data-content="Saving Private Ryan">
+						<img class="media-thumbnail border-movie" src="img/thumb-movie.png">
+					</a><br>
+					<a class="europe" data-toggle="popover" title="2014 film" data-content="Saving Private Ryan">
+						<img class="media-thumbnail border-movie" src="img/thumb-movie.png">
+					</a><br>
+					<a class="europe" data-toggle="popover" title="2014 film" data-content="Saving Private Ryan">
+						<img class="media-thumbnail border-movie" src="img/thumb-movie.png">
+					</a><br>
+				</div>
+			</div>
+			<div class="column-scroll-container bottom">
+				<div class="column-scroll-content bottom">
+					<a class="europe" data-toggle="popover" title="2014 film" data-content="Saving Private Ryan">
+						<img class="media-thumbnail border-movie" src="img/thumb-movie.png">
+					</a><br>
+					<a class="europe" data-toggle="popover" title="2014 film" data-content="Saving Private Ryan">
+						<img class="media-thumbnail border-movie" src="img/thumb-movie.png">
+					</a><br>
+					<a class="europe" data-toggle="popover" title="2014 film" data-content="Saving Private Ryan">
+						<img class="media-thumbnail border-movie" src="img/thumb-movie.png">
+					</a><br>
+					<a class="europe" data-toggle="popover" title="2014 film" data-content="Saving Private Ryan">
+						<img class="media-thumbnail border-movie" src="img/thumb-movie.png">
+					</a><br>
+					<a class="europe" data-toggle="popover" title="2014 film" data-content="Saving Private Ryan">
+						<img class="media-thumbnail border-movie" src="img/thumb-movie.png">
+					</a><br>
+					<a class="europe" data-toggle="popover" title="2014 film" data-content="Saving Private Ryan">
+						<img class="media-thumbnail border-movie" src="img/thumb-movie.png">
+					</a><br>
+					<a class="europe" data-toggle="popover" title="2014 film" data-content="Saving Private Ryan">
+						<img class="media-thumbnail border-movie" src="img/thumb-movie.png">
+					</a><br>
+					<a class="europe" data-toggle="popover" title="2014 film" data-content="Saving Private Ryan">
+						<img class="media-thumbnail border-movie" src="img/thumb-movie.png">
+					</a><br>
+					<a class="europe" data-toggle="popover" title="2014 film" data-content="Saving Private Ryan">
+						<img class="media-thumbnail border-movie" src="img/thumb-movie.png">
+					</a><br>
+					<a class="europe" data-toggle="popover" title="2014 film" data-content="Saving Private Ryan">
+						<img class="media-thumbnail border-movie" src="img/thumb-movie.png">
+					</a><br>
+					<a class="europe" data-toggle="popover" title="2014 film" data-content="Saving Private Ryan">
+						<img class="media-thumbnail border-movie" src="img/thumb-movie.png">
+					</a><br>
+				</div>
+			</div>
 			
-		</div>
-		
-		<div id="TIMELINE" class="border">
-		timeline
-		</div>
-		
-		<div id="MEDIA-CONTAINER-BOTTOM" class="border">
-		bootom
+			<div class="timeline">
+				<div class="timeline-date-container top">
+					<p class="date top">JAN<b>1940</b><p>
+				</div>
+				<div class="timeline-event-container top">
+					<img src="img/event-air@2x.png">
+				</div>
+				<div class="timeline-event-container bottom">
+				
+				</div>
+				<div class="timeline-date-container bottom">
+					<p class="date bottom"><b>1940</b>JAN<p>
+				</div>
+			</div>
 		</div>
 	</div>
-</div>
+	
+	<div class="bottom-gradient"></div>
 
 <div id="modalArea"></div>
 

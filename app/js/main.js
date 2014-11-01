@@ -15,11 +15,13 @@ $(document).ready(function() {
 
   var iDate = _.clone(startDate);
   while (!_.isEqual(iDate, endDate)) {
+    var monthString = months[iDate.month];
     var contentObj = {
-      month: months[iDate.month],
+      month: monthString,
+      monthShort: monthString.substring(0,3).toUpperCase(), 
       year: iDate.year
     }
-    $('#MEDIA-CONTAINER-TOP').append(monthColumnTemplate(contentObj));
+    $('#main').append(monthColumnTemplate(contentObj));
 
     // increment iDate
     iDate.month++; 
@@ -97,7 +99,7 @@ $(window).load(function() {
         return;
       }
 
-      var dateColId = '#' + date.year + "-" + date.month + "-month-col",
+      var dateColId = '#' + date.year + "-" + date.month + "-month-col-top",
         popoverId = '#' + row.uniqueId + '-popover';
 
       console.log(dateColId);
