@@ -107,23 +107,26 @@
   height: 100%;
 }
 .background {
-  width: 100%;
   position: fixed;
   top: 0;
+  bottom: 0;
   left: 0;
   right: 0;
   height: 100%;
+  z-index: -1;
 }
 .background-top {
   height: 50%;
   width: 100%;
-  background: url("img/background-top.jpg") #f1f1f1 center fixed;
+  background: url("../img/background-top.jpg") #f1f1f1 bottom center fixed;
+  background-size: cover;
   margin: 0px;
 }
 .background-bottom {
   height: 50%;
   width: 100%;
-  background: url("img/background-top.jpg") #f1f1f1 center fixed;
+  background: url("../img/background-bottom.jpg") #f1f1f1 bottom center fixed;
+  background-size: cover;
   margin: 0px;
 }
 .media-container-top div {
