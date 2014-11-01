@@ -68,29 +68,37 @@
   width: 200px;
   height: 100%;
   display: block;
-  position: fixed;
+  position: absolute;
   top: 0;
+  bottom: 0;
   left: -200px;
-  border-right: 1px solid #b3b3b3;
+  background: white;
+  border-right: 1px solid #f1f1f1;
+}
+.infopanel > .navbar-toggle-right {
+  margin: 18px;
 }
 .infopanel-content-container {
   margin: auto 20px;
-  vertical-align: center;
+  width: 160px;
   font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  display: table;
 }
 .infopanel-text {
+  display: table-cell;
+  vertical-align: middle;
   font-weight: 200;
   color: #0d0d0d;
   line-height: 20px;
   font-size: 14px;
 }
-.infopanel-text.bold {
+.infopanel-text > b {
   font-weight: 800;
 }
-.infopanel-text.italic {
+.infopanel-text > i {
   font-style: italic;
 }
-.infopanel-text.link {
+.infopanel-text > a {
   color: #900605;
 }
 .maincontent {

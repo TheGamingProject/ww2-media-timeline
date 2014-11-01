@@ -13,7 +13,7 @@
 @color-links: #900605;
 
 // Text
-@font-header: 'PT Sans Narrow', 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+@font-header: 'PT Sans Narrow', 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif; //normal
 @font-sans: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif; //200,300,300i,600
 @font-serif: 'PT Serif', Georgia, 'Times New Roman', Times, serif; //400,400i
 
@@ -76,31 +76,40 @@
 				margin: 18px auto;
 			}
 		}
-		
+
+	
 // INFOPANEL
 		
 .infopanel {
 	width: 200px;
 	height: 100%;
 	display:block;
-	position: fixed;
+	position: absolute;
 	top: 0;
+	bottom: 0;
 	left: -200px;
-	border-right: 1px solid @color-gray;
+	background: white;
+	border-right: 1px solid #f1f1f1;
+	> .navbar-toggle-right {
+		margin: 18px;
+	}
 }
 	.infopanel-content-container {
 		margin: auto 20px;
-		vertical-align: center;
+		width: 160px;
 		font-family: @font-sans;
+		display: table;
 	}
 		.infopanel-text {
+			display: table-cell;
+			vertical-align: middle;
 			font-weight: 200;
 			color: @color-black;
 			line-height: 20px;
 			font-size: 14px;
-			&.bold {font-weight: 800;}
-			&.italic {font-style: italic;}
-			&.link {color: @color-links;}
+			> b {font-weight: 800;}
+			> i {font-style: italic;}
+			> a {color: @color-links;}
 		}
 
 .maincontent {
