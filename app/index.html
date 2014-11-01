@@ -1,10 +1,10 @@
 <html>
 
 <head>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
 <script type="text/javascript" src="js/placementUtils.js"></script>
 <script type="text/javascript" src="js/sheetsUtils.js"></script>
@@ -24,18 +24,18 @@
 		<div id="{{year}}-{{month}}-month-col" style="float:left;" class="border"> <!-- MONTH-LIST-WIDTH -->
 			{{month}} {{year}} <br>
 		</div>
-	</script>
+	</script> 
 
 	<script id="modalToggle" type="text/x-handlebars-template">
 		<a id="{{uniqueId}}-POPOVER" type="button" data-container="body" data-toggle="popover" title="{{media.title}} {{media.episodechapter}}" data-content=" >>">
 			<img src="img/thumb-{{media.medium}}.png">
 		</a>
 		<br>
-	</script>
+	</script> 
 
 	<script id="mediumPopover" type="text/x-handlebars-template">
 		<a data-toggle="modal" data-target="#{{uniqueId}}-MODAL"> &gt;&gt; </a>
-	</script>
+	</script> 
 
 	<script id="mediumModal" type="text/x-handlebars-template">
 	<div class="modal fade" id="{{uniqueId}}-MODAL" tabindex="-1" role="dialog" aria-labelledby="{{media.title}}-MODAL-LABEL" aria-hidden="true">
@@ -80,7 +80,7 @@
 				</div>
 			</div>
 		</div>
-	</script>
+	</script> 
 
     <script id="aMedia" type="text/x-handlebars-template">
     	<div class="border">
@@ -97,7 +97,7 @@
 			Unit Division: {{unitdivision}} <br>
 			<a href="{{wikipage}}">wikipage</a>
 		</div>
-	</script>
+	</script> 
 
 	<script id="aMediaButtons" type="text/x-handlebars-template">
 		{{#each media-entry}}
@@ -105,7 +105,7 @@
 			<img class="media-thumbnail border-{{media.type}}" src="img/{{media.title}}@2x.png">
 		</a>
 		{{/each}}
-	</script>
+	</script> 
 
     <div id="contentNo">
 
@@ -247,6 +247,8 @@ To report any errors or omissions, please contact us at <a href="mailto:ww2@tgp.
 			</div>
 		</div>
 	</div>
+	
+	<div class="bottom-gradient"></div>
 
 <div id="modalArea"></div>
 
