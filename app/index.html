@@ -56,14 +56,17 @@
 	</script>
 
 	<script id="mediumButton" type="text/x-handlebars-template">
-		<a id="{{uniqueId}}-popover" type="button" data-container="body" data-toggle="popover" title="{{media.title}} - {{media.episode}}" data-content="{{mediumPopover}}">
+		<a id="{{uniqueId}}-popover" type="button" data-container="body" data-toggle="popover" data-content="{{mediumPopover}}">
 			<img class="media-thumbnail border-{{media.medium}}" src="img/thumb-{{media.medium}}.png">
 		</a>
 		<br>
 	</script> 
 
 	<script id="mediumPopover" type="text/x-handlebars-template">
-		<a data-toggle="modal" data-target="#{{uniqueId}}-modal"> &gt;&gt; </a>
+		<a data-toggle="modal" data-target="#{{uniqueId}}-modal">
+		<h2>{{media.releasedYear}} {{media.medium}}</h2>
+		<h1>{{media.title}} {{#if media.episode}}<span class="episode">&#8220;{{media.episode}}&#8221;</span>{{/if}} <span class="popover-arrow">&#187;</span></h1>
+		</a>
 	</script> 
 
 	<script id="mediumModal" type="text/x-handlebars-template">
@@ -76,7 +79,7 @@
 					<img class="media-thumbnail border-{{media.medium}}" src="img/thumb-{{media.medium}}.png">
 					<h2>{{media.releasedYear}} {{media.medium}}</h2>
 					<h1>{{media.title}}</h1>
-					<h3>" {{media.episode}} "</h3>
+					{{#if media.episode}}<h3>&#8220; {{media.episode}} &#8221;</h3>{{/if}}
 					<hr>
 					<p class="mediainfo-titles">
 						{{#if depicted.date}}<span class="title">DATE</span> {{depicted.date}}<br>{{/if}}
