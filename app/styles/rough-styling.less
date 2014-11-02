@@ -27,7 +27,7 @@
 	padding-left: 0;
 	list-style: none;
 	display:block;
-	position: fixed;
+	position: fixed !important;
 	top: 0;
 	right: 0;
 	left: 0;
@@ -118,8 +118,11 @@
 
 .maincontent {
 	overflow-x: scroll;
-	width: inherit;
+	width: 9000px;
 	height: 100%;
+	top: 0;
+	left: 0;
+	bottom: 0;
 }
 	.background {
 		position: fixed;
@@ -151,6 +154,7 @@
 		margin: 0;
 		padding: 0;
 		float: left;
+		top: 0;
 	}
 		.column-scroll-container {
 			height: 50%;
