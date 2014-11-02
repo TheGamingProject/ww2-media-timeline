@@ -77,7 +77,8 @@ $(window).load(function() {
           title: resultRow.title,
           episode: resultRow.episodechapter,
           medium: resultRow.medium.toLowerCase(),
-          released: resultRow.released,
+          released: resultRow.releasedate,
+          releasedYear: resultRow.releasedate.substring(resultRow.releasedate.length - 4),
           metacritic: resultRow.metacritic
         }
       });

@@ -34,7 +34,7 @@ appJs = concatenate(app, {
 
 appImg = pickFiles(app, {
   srcDir  : '/',
-  files   : ['**/*.png'],
+  files   : ['**/*.png','**/*.jpg'],
   destDir : '/'
 });
 

@@ -9,7 +9,7 @@
 @color-black: #0d0d0d;
 @color-gray: #b3b3b3;
 @color-white: #ffffff;
-@color-dates: #0d0d0d;
+@color-dates: #808080;
 @color-links: #900605;
 
 // Text
@@ -118,12 +118,14 @@
 
 .maincontent {
 	overflow-x: scroll;
-	width: 9000px;
+	width: 3080px; //monthCount * monthColumnWidth
 	height: 100%;
 	top: 0;
 	left: 0;
 	bottom: 0;
 }
+
+	//Backgrounds
 	.background {
 		position: fixed;
 		top: 0;
@@ -147,8 +149,10 @@
 			background-size: cover;
 			margin: 0px;
 		}
-	
+		
+	//Month Columns
 	.month-width-column {
+		position: relative;
 		width: 40px !important;
 		height: 100%;
 		margin: 0;
@@ -177,7 +181,7 @@
 				&.bottom {padding-top: 60px; padding-bottom: 30px;}
 			}
 			
-			::-webkit-scrollbar { 
+			.column-scroll-content::-webkit-scrollbar { 
 				display: none; 
 			} //NOTE: EXPERIMENTAL
 			
@@ -191,10 +195,11 @@
 				height: 32px;
 				border-radius: 16px;
 				&.border-movie{border: 1px solid @color-red;}
-				&.border-television{border: 1px solid @color-orange;}
-				&.border-videogame{border: 1px solid @color-yellow;}
+				&.border-tv{border: 1px solid @color-orange;}
+				&.border-game{border: 1px solid @color-yellow;}
 			}
 			
+	//Timeline		
 	.timeline {
 		position: absolute;
 		top: 50%;
@@ -241,11 +246,70 @@
 	z-index: 11;
 	background: linear-gradient(to top, rgba(241,241,241,1) 0%,rgba(241,241,241,0) 100%);
 }
-		
-//MODAL div
-//	MODAL-DIALOG div
-//		MODAL-CONTENT div
-//			MODAL-MEDIA-THUMBNAIL img
-//			MEDIA-TITLES text
-//			MEDIA-VALUES text
-//			MODAL.HR
+
+//MODAL
+.modal {
+	z-index: 2000; //lets put modals on top of everything
+}
+	.modal-dialog {
+		width: 280px !important;
+		margin-top: 10% !important;
+	}
+		.modal-content {
+			border-radius: 4px;
+			padding: 18px;
+			padding-bottom: 4px;
+			font-family: @font-sans;
+			
+			> ul {margin-top: 4px;}
+			> img {
+				margin: 0;
+				margin-left: 105px;
+			}
+			> h1 {
+				font-family: @font-header;
+				font-size: 24px;
+				text-align: center;
+				margin-top: 0;
+				margin-bottom: 0;
+			}
+			> h2 {
+				font-family: @font-serif;
+				font-size: 12px;
+				font-style: italic;
+				color: @color-gray;
+				text-align: center;
+				margin-top: 14px;
+				margin-bottom: 0;
+			}
+			> h3 {
+				font-family: @font-serif;
+				font-size: 12px;
+				font-style: italic;
+				color: @color-gray;
+				text-align: center;
+				margin-top: 0;
+				margin-bottom: 0;
+			}
+			> hr {
+				width: 62px;
+				margin: 16px auto;
+				border-top: 1px solid @color-links;
+			}
+			> p {
+				text-align: right;
+				font-weight: 600;
+				font-size: 16px;
+				white-space: nowrap;
+  				overflow: hidden;
+  				text-overflow: ellipsis;
+  				line-height: 32px;
+				> .title {
+					text-align: left;
+					float: left;
+					font-weight: 200;
+					font-size: 12px;
+					letter-spacing: 1px;
+				}
+			}
+		}

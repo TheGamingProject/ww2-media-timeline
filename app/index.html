@@ -56,54 +56,41 @@
 	</script>
 
 	<script id="mediumButton" type="text/x-handlebars-template">
-		<a id="{{uniqueId}}-POPOVER" type="button" data-container="body" data-toggle="popover" title="{{media.title}} {{media.episodechapter}}" data-content=" >>">
-			<img src="img/thumb-{{media.medium}}.png">
+		<a id="{{uniqueId}}-popover" type="button" data-container="body" data-toggle="popover" title="{{media.title}} - {{media.episode}}" data-content="{{mediumPopover}}">
+			<img class="media-thumbnail border-{{media.medium}}" src="img/thumb-{{media.medium}}.png">
 		</a>
 		<br>
 	</script> 
 
 	<script id="mediumPopover" type="text/x-handlebars-template">
-		<a data-toggle="modal" data-target="#{{uniqueId}}-MODAL"> &gt;&gt; </a>
+		<a data-toggle="modal" data-target="#{{uniqueId}}-modal"> &gt;&gt; </a>
 	</script> 
 
 	<script id="mediumModal" type="text/x-handlebars-template">
-	<div class="modal fade" id="{{uniqueId}}-MODAL" tabindex="-1" role="dialog" aria-labelledby="{{media.title}}-MODAL-LABEL" aria-hidden="true">
+	<div class="modal fade" id="{{uniqueId}}-modal" tabindex="-1" role="dialog" aria-labelledby="{{media.title}}-modal-label" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
-					<a class="close" data-dismiss="modal">
-						<p class="navbar-toggle-text">CLOSE</p>
-						<img IMG-CLOSE class="navbar-toggle-icon"/>
-					</a>
-					<img class="MEDIA-THUMBNAIL MOVIE-BORDER">
-					<h2></h2>
-					<h1>{{medium.episode}}</h1>
+					<ul class="navbar-toggle-right">
+						<li class="navbar-toggle-text gray">CLOSE<img src="img/toggle-close@2x.png" class="navbar-toggle-icon"/></li>
+					</ul>
+					<img class="media-thumbnail border-{{media.medium}}" src="img/thumb-{{media.medium}}.png">
+					<h2>{{media.releasedYear}} {{media.medium}}</h2>
+					<h1>{{media.title}}</h1>
+					<h3>" {{media.episode}} "</h3>
 					<hr>
-					<p class="MEDIAINFO-TITLES">
-						{{#if depicted.date}}DATE<br>{{/if}}
-						{{#if depicted.location}}LOCATION<br>{{/if}}
-						{{#if depicted.event}}EVENT<br>{{/if}}
-						{{#if depicted.alliance}}ALLIANCE<br>{{/if}}
-						{{#if depicted.military}}MILITARY<br>{{/if}}
-						{{#if depicted.division}}DIVISION<br>{{/if}}
-					</p>
-					<p class="MEDIAINFO-VALUES">
-						{{#if depicted.date}}{{depicted.date}}<br>{{/if}}
-						{{#if depicted.location}}{{depicted.location}}<br>{{/if}}
-						{{#if depicted.event}}{{depicted.event}}<br>{{/if}}
-						{{#if depicted.alliance}}{{depicted.alliance}}<br>{{/if}}
-						{{#if depicted.military}}{{depicted.military}}<br>{{/if}}
-						{{#if depicted.division}}{{depicted.division}}<br>{{/if}}
+					<p class="mediainfo-titles">
+						{{#if depicted.date}}<span class="title">DATE</span> {{depicted.date}}<br>{{/if}}
+						{{#if depicted.location}}<span class="title">LOCATION</span> {{depicted.location}}<br>{{/if}}
+						{{#if depicted.event}}<span class="title">EVENT</span>{{depicted.event}}<br>{{/if}}
+						{{#if depicted.alliance}}<span class="title">ALLIANCE</span> {{depicted.alliance}}<br>{{/if}}
+						{{#if depicted.military}}<span class="title">MILITARY</span> {{depicted.military}}<br>{{/if}}
+						{{#if depicted.division}}<span class="title">DIVISION</span> {{depicted.division}}<br>{{/if}}
 					</p>
 					<hr>
-					<p class="MEDIAINFO-TITLES">
-						{{#if media.released}}RELEASED<br>{{/if}}
-						{{#if media.metacritic}}METACRITIC<br>{{/if}}
-						{{#if depicted.accuracy}}ACCURACY<br>{{/if}}
-					</p>
-					<p class="MEDIAINFO-VALUES">
-						{{#if media.released}}{{media.released}}<br>{{/if}}
-						{{#if media.metacritic}}{{media.metacritic}}<br>{{/if}}
-						{{#if depicted.accurac}}{{depicted.accuracy}}<br>{{/if}}
+					<p class="mediainfo-titles">
+						{{#if media.released}}<span class="title">RELEASED</span>  {{media.released}}<br>{{/if}}
+						{{#if media.metacritic}}<span class="title">METACRITIC</span>  {{media.metacritic}}<br>{{/if}}
+						{{#if depicted.accuracy}}<span class="title">ACCURACY</span>  {{depicted.accuracy}}<br>{{/if}}
 					</p>
 					{{! all values are only output IF value exists; need to figure out how line breaks (perhaps simply truncate) }}
 				</div>
@@ -136,8 +123,8 @@
 	
 	<div class="infopanel">
 		<ul class="navbar-toggle-right">
-				<li class="navbar-toggle-text gray">CLOSE<img src="img/toggle-close@2x.png" class="navbar-toggle-icon"/></li>
-			</ul>
+			<li class="navbar-toggle-text gray">CLOSE<img src="img/toggle-close@2x.png" class="navbar-toggle-icon"/></li>
+		</ul>
 		<div class="infopanel-content-container">
 			<p class="infopanel-text">
 				Welcome to <b>Visual Depictions of World War II</b>, a timeline that orders movies, television shows, and videogames by the dates in history they depict.
