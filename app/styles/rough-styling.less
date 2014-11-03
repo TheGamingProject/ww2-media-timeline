@@ -34,6 +34,7 @@
 	background: linear-gradient(to bottom, rgba(241,241,241,1) 0%,rgba(241,241,241,0) 100%);
 	border: none;
 	z-index:10;
+	pointer-events: none;
 }
 	.navbar-content-container {
 		padding: 18px 10px 0 10px;
@@ -43,6 +44,7 @@
 			float: left;
 			list-style: none;
 			-webkit-padding-start: 0;
+			pointer-events: auto;
 		}
 			.navbar-toggle-icon {
 				width: 8px;
@@ -62,6 +64,7 @@
 			float: right;
 			text-align: right;
 			list-style: none;
+			pointer-events: auto;
 			> li {margin-bottom: 12px;}
 		}
 		.navbar-logo {
@@ -86,7 +89,7 @@
 	width: 200px;
 	height: 100%;
 	display:block;
-	position: absolute;
+	position: fixed;
 	top: 0;
 	bottom: 0;
 	left: -200px;
@@ -119,7 +122,7 @@
 
 .maincontent {
 	overflow-x: scroll;
-	width: 3080px; //monthCount * monthColumnWidth
+	width: 3040px; //monthCount * monthColumnWidth
 	height: 100%;
 	top: 0;
 	left: 0;
@@ -160,6 +163,7 @@
 		padding: 0;
 		float: left;
 		top: 0;
+		z-index: 1;
 	}
 		.column-scroll-container {
 			height: 50%;
@@ -213,16 +217,19 @@
 		margin-top: -80px;
 		padding: 0;
 		z-index: 10;
+		pointer-events: none;
 	}
 		.timeline-date-container {
 			position: relative;
 			height: 40px;
 			width: auto;
+			pointer-events: none;
 			> .date {
 				font-family: @font-sans;
 				-webkit-transform: rotate(270deg);
 				color: @color-dates;
 				margin-top: 21px;
+				pointer-events: none;
 				&.top {
 					padding-left: 5px;
 				}
@@ -256,6 +263,7 @@
 	left: 0;
 	z-index: 11;
 	background: linear-gradient(to top, rgba(241,241,241,1) 0%,rgba(241,241,241,0) 100%);
+	pointer-events: none;
 }
 
 //MODAL
@@ -336,12 +344,14 @@ h3 {
 a {
   color: inherit;
   text-decoration: none;
+  transition: .5s;
 
   &:hover,
   &:focus {
-    color: @color-links;
+    color: inherit;
     text-decoration: none;
     cursor: pointer;
+    opacity: .5;
   }
 }
 

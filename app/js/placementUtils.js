@@ -11,6 +11,9 @@ $(function() {
 	
 $(document).ready(function() {
     $('#toggle-info').click(function() {
-    	$('.infopanel').animate({left: 0})
+    	$('.infopanel').animate({left: 0});
+	});
+	$('#toggle-close-infopanel').click(function() {
+    	$('.infopanel').animate({left: -200});
 	});
 });
