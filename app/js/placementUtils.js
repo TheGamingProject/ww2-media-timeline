@@ -16,4 +16,7 @@ $(document).ready(function() {
 	$('#toggle-close-infopanel').click(function() {
     	$('.infopanel').animate({left: -200});
 	});
+	$('.tooltip').css({
+		'left' : ($('.tooltip').innerWidth())/2
+	});
 });
