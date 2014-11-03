@@ -40,7 +40,7 @@
 			
 			<div class="timeline">
 				<div class="timeline-date-container top">
-					<p class="date top">{{monthShort}}<b>{{year}}</b><p>
+					<p class="date top">{{monthShort}}{{#if isJanuary}}<b>{{year}}</b>{{/if}}<p>
 				</div>
 				<div class="timeline-event-container top">
 					<img src="img/event-air@2x.png">
@@ -49,7 +49,7 @@
 				
 				</div>
 				<div class="timeline-date-container bottom">
-					<p class="date bottom"><b>{{year}}</b>{{monthShort}}<p>
+					<p class="date bottom">{{#if isJanuary}}<b>{{year}}</b>{{/if}}{{monthShort}}<p>
 				</div>
 			</div>
 		</div>

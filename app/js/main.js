@@ -18,6 +18,7 @@ $(document).ready(function() {
     var monthString = months[iDate.month];
     var contentObj = {
       month: monthString,
+      isJanuary: monthString === 'january',
       monthShort: monthString.substring(0,3).toUpperCase(), 
       year: iDate.year
     }
