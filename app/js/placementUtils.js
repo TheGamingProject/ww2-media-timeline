@@ -17,21 +17,21 @@ $(document).ready(function() {
     	$('.infopanel').animate({left: -200});
 	});
 	$('#toggle-movies').click(function() {
-  		$('.border-movie').toggle( "slow" );
+  		$('.border-movie').fadeToggle();
   		console.log('movies toggle clicked');
 	});
 	$('#toggle-tv').click(function() {
-  		$('.border-tv').toggle( "slow" );
+  		$('.border-tv').fadeToggle();
   		console.log('tv toggle clicked');
 	});
 	$('#toggle-games').click(function() {
-  		$('.border-game').toggle( "slow" );
+  		$('.border-game').fadeToggle();
   		console.log('games toggle clicked');
 	});
 	$('#toggle-showall').click(function() {
-  		$('.border-movie').show();
-  		$('.border-tv').show();
-  		$('.border-game').show();
+  		$('.border-movie').fadeIn();
+  		$('.border-tv').fadeIn();
+  		$('.border-game').fadeIn();
   		console.log('showall toggle clicked');
 	});
 });
