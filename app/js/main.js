@@ -34,14 +34,15 @@ $(document).ready(function() {
 
 });
 
-var dateRegexp = /([\d|\d\d])\/[\d|\d\d]\/(\d\d\d\d)/;
+var dateRegexp = /(\d|\d\d)\/(\d|\d\d)\/(\d\d\d\d)/;
 var getDate = function (dateString) {
   var match = dateString.match(dateRegexp);
 
-  if (match && match.length === 3) {
+  if (match && match.length === 4) {
     return {
       month: months[Number(match[1]) - 1],
-      year: match[2]
+      year: match[2],
+      year: match[3]
     };
   }
 };
@@ -72,7 +73,10 @@ $(window).load(function() {
           alliance: resultRow.sides,
           military: resultRow.military,
           division: resultRow.unitdivision,
-          accuracy: resultRow.accuracy
+          accuracy: resultRow.accuracy,
+          theater: resultRow.theater,
+          isPacific: resultRow.theater === 'Pacific',
+          isEurope: resultRow.theater === 'Europe'
         }, 
         media: {
           title: resultRow.title,
@@ -101,13 +105,16 @@ $(window).load(function() {
         return;
       }
 
-      var dateColId = '#' + date.year + "-" + date.month + "-month-col-top",
+      var dateTopColId = '#' + date.year + "-" + date.month + "-month-col-top",
+        dateBottomColId = '#' + date.year + "-" + date.month + "-month-col-bottom",
         popoverId = '#' + row.uniqueId + '-popover';
 
-      console.log(dateColId);
+      console.log(dateTopColId);
+      console.log(dateBottomColId);
       console.log(popoverId);
 
-      $(dateColId).prepend(mediumButtonTemplate(row));
+      $(dateTopColId).prepend(mediumButtonTemplate(row));
+      $(dateBottomColId).prepend(mediumButtonTemplate(row));
 
       $('#modalArea').prepend(mediumModalTemplate(row));
 

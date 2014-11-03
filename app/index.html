@@ -55,11 +55,11 @@
 		</div>
 	</script>
 
-	<script id="mediumButton" type="text/x-handlebars-template">
-		<a id="{{uniqueId}}-popover" type="button" data-container="body" data-toggle="popover" data-content="{{mediumPopover}}">
+	<script id="mediumButtonTop" type="text/x-handlebars-template">
+		{{#if depicted.isEurope}}<a id="{{uniqueId}}-popover" type="button" data-container="body" data-toggle="popover" data-content="{{mediumPopover}}">
 			<img class="media-thumbnail border-{{media.medium}}" src="img/thumb-{{media.medium}}.png">
 		</a>
-		<br>
+		<br>{{/if}}
 	</script> 
 
 	<script id="mediumPopover" type="text/x-handlebars-template">
