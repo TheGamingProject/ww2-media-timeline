@@ -1,4 +1,4 @@
-HEADER
+NAVBAR
 	100% width container
 		left-hand info toggle
 		centered logo

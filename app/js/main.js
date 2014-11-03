@@ -15,11 +15,14 @@ $(document).ready(function() {
 
   var iDate = _.clone(startDate);
   while (!_.isEqual(iDate, endDate)) {
+    var monthString = months[iDate.month];
     var contentObj = {
-      month: months[iDate.month],
+      month: monthString,
+      isJanuary: monthString === 'january',
+      monthShort: monthString.substring(0,3).toUpperCase(), 
       year: iDate.year
     }
-    $('#MEDIA-CONTAINER-TOP').append(monthColumnTemplate(contentObj));
+    $('#main').append(monthColumnTemplate(contentObj));
 
     // increment iDate
     iDate.month++; 
@@ -31,14 +34,15 @@ $(document).ready(function() {
 
 });
 
-var dateRegexp = /([\d|\d\d])\/[\d|\d\d]\/(\d\d\d\d)/;
+var dateRegexp = /(\d|\d\d)\/(\d|\d\d)\/(\d\d\d\d)/;
 var getDate = function (dateString) {
   var match = dateString.match(dateRegexp);
 
-  if (match && match.length === 3) {
+  if (match && match.length === 4) {
     return {
       month: months[Number(match[1]) - 1],
-      year: match[2]
+      year: match[2],
+      year: match[3]
     };
   }
 };
@@ -58,7 +62,7 @@ $(window).load(function() {
         uniqueId += '-' + resultRow.episodechapter;
       }
 
-      uniqueId = uniqueId.replace(/[#|'| ]/g,"");
+      uniqueId = uniqueId.replace(/[#' :;]/g,"");
 
       ww2Info.push({
         uniqueId: uniqueId,
@@ -69,21 +73,27 @@ $(window).load(function() {
           alliance: resultRow.sides,
           military: resultRow.military,
           division: resultRow.unitdivision,
-          accuracy: resultRow.accuracy
+          accuracy: resultRow.accuracy,
+          theater: resultRow.theater,
+          isPacific: resultRow.theater === 'Pacific',
+          isEurope: resultRow.theater === 'Europe'
         }, 
         media: {
           title: resultRow.title,
           episode: resultRow.episodechapter,
           medium: resultRow.medium.toLowerCase(),
-          released: resultRow.released,
+          released: resultRow.releasedate,
+          releasedYear: resultRow.releasedate.substring(resultRow.releasedate.length - 4),
           metacritic: resultRow.metacritic
         }
       });
     });
 
-    var mediumButtonTemplateScript = $("#mediumButton").html(),
+    var eventTooltipTemplateScript = $("#eventTooltip").html(),
+      eventTooltipTemplate = Handlebars.compile(eventTooltipTemplateScript),
+      mediumButtonTemplateScript = $("#mediumButton").html(),
       mediumButtonTemplate = Handlebars.compile(mediumButtonTemplateScript),
-      mediumModalTemplateScript = $("#modalToggle").html(),
+      mediumModalTemplateScript = $("#mediumModal").html(),
       mediumModalTemplate = Handlebars.compile(mediumModalTemplateScript),
       mediumPopoverTemplateScript = $("#mediumPopover").html(),
       mediumPopoverTemplate = Handlebars.compile(mediumPopoverTemplateScript);
@@ -97,13 +107,21 @@ $(window).load(function() {
         return;
       }
 
-      var dateColId = '#' + date.year + "-" + date.month + "-month-col",
+      var dateTopColId = '#' + date.year + "-" + date.month + "-month-col-top",
+        dateBottomColId = '#' + date.year + "-" + date.month + "-month-col-bottom",
         popoverId = '#' + row.uniqueId + '-popover';
 
-      console.log(dateColId);
+      console.log(dateTopColId);
+      console.log(dateBottomColId);
       console.log(popoverId);
+      console.log(row);
 
-      $(dateColId).prepend(mediumButtonTemplate(row));
+      if (row.depicted.isEurope) {
+        $(dateTopColId).prepend(mediumButtonTemplate(row));
+      } else if (row.depicted.isPacific) {
+        $(dateBottomColId).prepend(mediumButtonTemplate(row));
+      }
+
 
       $('#modalArea').prepend(mediumModalTemplate(row));
 
@@ -113,7 +131,7 @@ $(window).load(function() {
     });
 
     //http://stackoverflow.com/questions/18410922/bootstrap-3-0-popovers-and-tooltips
-    $('[data-toggle="tooltip"]').tooltip({'placement': 'top'});
+    $('[data-toggle="tooltip"]').tooltip({html: true});
     $('[data-toggle="popover"]').popover({html: true, trigger: 'click','placement': 'right'});
   });
 
