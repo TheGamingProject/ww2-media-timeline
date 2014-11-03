@@ -168,18 +168,19 @@
 			margin: 0;
 			position: relative;
 			overflow-y: hidden;
+			display: table;
 		}
 			.column-scroll-content {
 				position: absolute;
-				bottom: 0;
+				
 				right: 0;
 				left: 0;
 				overflow-y: auto;
 				overflow-x: visible;
 				max-height: 100%;
 				z-index: 1;
-				&.top {padding-top: 80px; padding-bottom: 66px;}
-				&.bottom {padding-top: 70px; padding-bottom: 60px;}
+				&.top {padding-top: 80px; padding-bottom: 66px; bottom: 0;}
+				&.bottom {padding-top: 70px; padding-bottom: 60px; top: 0;}
 			}
 			
 			//.column-scroll-content

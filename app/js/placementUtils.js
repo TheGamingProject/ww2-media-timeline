@@ -1,7 +1,7 @@
 $(function() {
-	$('.column-scroll-content.top').css({
-		'margin-top' : $('.column-scroll-container').height()-$('.column-scroll-content').innerHeight()
-	});
+	//$('.column-scroll-content.top').css({
+	//	'top' : ($('.column-scroll-content').height()-$('.column-scroll-content').innerHeight())
+	//});
 		
 	$('.popover').css({
 		'width' : $('.popover-content').innerWidth()
