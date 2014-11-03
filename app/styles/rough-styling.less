@@ -18,6 +18,46 @@
 @font-serif: 'PT Serif', Georgia, 'Times New Roman', Times, serif; //400,400i
 
 
+// GLOBAL
+
+h1 {
+	font-family: @font-header;
+	font-size: 24px;
+	text-align: center;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+h2 {
+	font-family: @font-serif;
+	font-size: 12px;
+	font-style: italic;
+	color: @color-gray;
+	text-align: center;
+	margin-top: 14px;
+	margin-bottom: 0;
+}
+h3 {
+	font-family: @font-header;
+	font-size: 16px;
+	color: @color-gray;
+	text-align: center;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: .5s;
+
+  &:hover,
+  &:focus {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    opacity: .5;
+  }
+}
+
 // NAVBAR
 
 .navbar {
@@ -244,6 +284,7 @@
 			height: 24px;
 			width: auto;
 			top: -5px;
+			pointer-events: auto;
 			&.top {background: @color-blue;}
 			&.bottom {background: @color-green;}
 			> img {
@@ -316,44 +357,6 @@
 				}
 			}
 		}
-h1 {
-	font-family: @font-header;
-	font-size: 24px;
-	text-align: center;
-	margin-top: 0;
-	margin-bottom: 0;
-}
-h2 {
-	font-family: @font-serif;
-	font-size: 12px;
-	font-style: italic;
-	color: @color-gray;
-	text-align: center;
-	margin-top: 14px;
-	margin-bottom: 0;
-}
-h3 {
-	font-family: @font-header;
-	font-size: 16px;
-	color: @color-gray;
-	text-align: center;
-	margin-top: 0;
-	margin-bottom: 0;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-  transition: .5s;
-
-  &:hover,
-  &:focus {
-    color: inherit;
-    text-decoration: none;
-    cursor: pointer;
-    opacity: .5;
-  }
-}
 
 //POPOVERS
 .popover {
@@ -387,4 +390,6 @@ a {
 				display: block;
 			}
 		}
+
+//TOOLTIPS
 	}

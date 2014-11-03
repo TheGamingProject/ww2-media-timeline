@@ -1,6 +1,7 @@
 <html>
 
 <head>
+<title>Visual Depictions of WW2, a Timeline</title>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
@@ -38,10 +39,11 @@
 					<p class="date top">{{monthShort}}{{#if isJanuary}}<b>{{year}}</b>{{/if}}</p>
 				</div>
 				<div class="timeline-event-container top">
+					<img type="button" data-toggle="tooltip" data-placement="top" title="Tooltip on top" src="img/event-air@2x.png">
 					{{eventTooltip}}
 				</div>
 				<div class="timeline-event-container bottom">
-				
+					<img type="button" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom" src="img/event-air@2x.png">
 				</div>
 				<div class="timeline-date-container bottom">
 					<p class="date bottom">{{#if isJanuary}}<b>{{year}}</b>{{/if}}{{monthShort}}</p>
