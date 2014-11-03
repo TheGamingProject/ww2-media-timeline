@@ -89,7 +89,9 @@ $(window).load(function() {
       });
     });
 
-    var mediumButtonTemplateScript = $("#mediumButton").html(),
+    var eventTooltipTemplateScript = $("#eventTooltip").html(),
+      eventTooltipTemplate = Handlebars.compile(eventTooltipTemplateScript),
+      mediumButtonTemplateScript = $("#mediumButton").html(),
       mediumButtonTemplate = Handlebars.compile(mediumButtonTemplateScript),
       mediumModalTemplateScript = $("#mediumModal").html(),
       mediumModalTemplate = Handlebars.compile(mediumModalTemplateScript),

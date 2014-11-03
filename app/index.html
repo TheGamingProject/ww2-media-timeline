@@ -38,7 +38,7 @@
 					<p class="date top">{{monthShort}}{{#if isJanuary}}<b>{{year}}</b>{{/if}}</p>
 				</div>
 				<div class="timeline-event-container top">
-					<img src="img/event-air@2x.png">
+					{{eventTooltip}}
 				</div>
 				<div class="timeline-event-container bottom">
 				
@@ -48,6 +48,10 @@
 				</div>
 			</div>
 		</div>
+	</script>
+	
+	<script id="eventTooltip" type="text/x-handlebars-template">
+		<img type="button" data-toggle="tooltip" data-placement="top" title="Tooltip on top" src="img/event-air@2x.png">
 	</script>
 
 	<script id="mediumButton" type="text/x-handlebars-template">
@@ -90,7 +94,6 @@
 						{{#if media.metacritic}}<span class="title">METACRITIC</span>  {{media.metacritic}}<br>{{/if}}
 						{{#if depicted.accuracy}}<span class="title">ACCURACY</span>  {{depicted.accuracy}}<br>{{/if}}
 					</p>
-					{{! all values are only output IF value exists; need to figure out how line breaks (perhaps simply truncate) }}
 				</div>
 			</div>
 		</div>
