@@ -220,8 +220,15 @@
 			> .date {
 				font-family: @font-sans;
 				-webkit-transform: rotate(270deg);
-				margin-top: 21px;
 				color: @color-dates;
+				margin-top: 21px;
+				&.top {
+					padding-left: 5px;
+				}
+				&.bottom {
+					text-align:right;
+					direction: rtl;
+				}
 			}
 		}
 		.timeline-event-container {
