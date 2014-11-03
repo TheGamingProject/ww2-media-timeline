@@ -112,9 +112,14 @@ $(window).load(function() {
       console.log(dateTopColId);
       console.log(dateBottomColId);
       console.log(popoverId);
+      console.log(row);
 
-      $(dateTopColId).prepend(mediumButtonTemplate(row));
-      $(dateBottomColId).prepend(mediumButtonTemplate(row));
+      if (row.depicted.isEurope) {
+        $(dateTopColId).prepend(mediumButtonTemplate(row));
+      } else if (row.depicted.isPacific) {
+        $(dateBottomColId).prepend(mediumButtonTemplate(row));
+      }
+
 
       $('#modalArea').prepend(mediumModalTemplate(row));
 

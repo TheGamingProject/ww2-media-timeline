@@ -19,11 +19,6 @@
 
 <body>
 	<!-- HANDLEBARS TEMPLATES -->
-	<script id="monthColumn-old" type="text/x-handlebars-template">
-		<div id="{{year}}-{{month}}-month-col" style="float:left;" class="border"> <!-- MONTH-LIST-WIDTH -->
-			{{month}} {{year}} <br>
-		</div>
-	</script> 
 
 	<script id="monthColumn" type="text/x-handlebars-template">
 		<div class="month-width-column">
@@ -33,7 +28,7 @@
 				</div>
 			</div>
 			<div class="column-scroll-container bottom">
-				<div id="{{year}}-{{month}}-month-col-bot" class="column-scroll-content bottom">
+				<div id="{{year}}-{{month}}-month-col-bottom" class="column-scroll-content bottom">
 
 				</div>
 			</div>
@@ -55,11 +50,11 @@
 		</div>
 	</script>
 
-	<script id="mediumButtonTop" type="text/x-handlebars-template">
-		{{#if depicted.isEurope}}<a id="{{uniqueId}}-popover" type="button" data-container="body" data-toggle="popover" data-content="{{mediumPopover}}">
+	<script id="mediumButton" type="text/x-handlebars-template">
+		<a id="{{uniqueId}}-popover" type="button" data-container="body" data-toggle="popover" data-content="{{mediumPopover}}">
 			<img class="media-thumbnail border-{{media.medium}}" src="img/thumb-{{media.medium}}.png">
 		</a>
-		<br>{{/if}}
+		<br>
 	</script> 
 
 	<script id="mediumPopover" type="text/x-handlebars-template">
