@@ -62,7 +62,7 @@ $(window).load(function() {
         uniqueId += '-' + resultRow.episodechapter;
       }
 
-      uniqueId = uniqueId.replace(/[#|'| ]/g,"");
+      uniqueId = uniqueId.replace(/[#' :;]/g,"");
 
       ww2Info.push({
         uniqueId: uniqueId,
