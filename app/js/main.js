@@ -136,7 +136,7 @@ $(window).load(function() {
     });
 
     //http://stackoverflow.com/questions/18410922/bootstrap-3-0-popovers-and-tooltips
-    $('[data-toggle="tooltip"]').tooltip({html: true});
+    $('[data-toggle="tooltip"]').tooltip({html: true, trigger: 'click', container: 'body'});
     $('[data-toggle="popover"]').popover({html: true, trigger: 'click','placement': 'right'});
   });
 

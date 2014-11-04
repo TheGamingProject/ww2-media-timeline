@@ -1,7 +1,5 @@
 $(function() {
-	//$('.column-scroll-content.top').css({
-	//	'top' : ($('.column-scroll-content').height()-$('.column-scroll-content').innerHeight())
-	//});
+	
 		
 	$('.popover').css({
 		'width' : $('.popover-content').innerWidth()
@@ -39,5 +37,19 @@ $(document).ready(function() {
   		$('.border-game').fadeIn();
   		$('br.game').fadeIn();
   		console.log('showall toggle clicked');
+	});
+	
+	$('.column-scroll-content.top').each(function() {
+		$(this).animate({
+			top: ($(this).height()-$(this).innerHeight())
+		});
+	});
+	
+	$('#main').on('click', function (e) {
+		$('[data-toggle="popover"]').each(function () {
+			if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
+				$(this).popover('hide');
+			}
+		});
 	});
 });
