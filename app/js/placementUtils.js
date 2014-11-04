@@ -1,12 +1,3 @@
-$(function() {
-	
-		
-	$('.popover').css({
-		'width' : $('.popover-content').innerWidth()
-	});
-});
-	
-	
 $(document).ready(function() {
     $('#toggle-info').click(function() {
     	$('.infopanel').animate({left: 0});
@@ -39,12 +30,6 @@ $(document).ready(function() {
   		console.log('showall toggle clicked');
 	});
 	
-	$('.column-scroll-content.top').each(function() {
-		$(this).animate({
-			top: ($(this).height()-$(this).innerHeight())
-		});
-	});
-	
 	$('#main').on('click', function (e) {
 		$('[data-toggle="popover"]').each(function () {
 			if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
@@ -52,4 +37,14 @@ $(document).ready(function() {
 			}
 		});
 	});
+	
+	$('.column-scroll-content.top').each(function() {
+		$('.column-scroll-content.top').animate({scrollTop:2000}
+			//$(this).innerHeight()
+			);
+	});
+});
+
+$(window).load(function() {
+	
 });
