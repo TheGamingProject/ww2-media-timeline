@@ -1,7 +1,7 @@
 // sept 1939 - jan 1946
 
-var startDate = {month: 8, year: 1939},
-  endDate = {month: 0, year: 1946};
+var startDate = {month: 5, year: 1939},
+  endDate = {month: 3, year: 1946};
 
 var months = ['january', 'febuary', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
 
@@ -95,9 +95,7 @@ $(window).load(function() {
       });
     });
 
-    var eventTooltipTemplateScript = $("#eventTooltip").html(),
-      eventTooltipTemplate = Handlebars.compile(eventTooltipTemplateScript),
-      mediumButtonTemplateScript = $("#mediumButton").html(),
+    var mediumButtonTemplateScript = $("#mediumButton").html(),
       mediumButtonTemplate = Handlebars.compile(mediumButtonTemplateScript),
       mediumModalTemplateScript = $("#mediumModal").html(),
       mediumModalTemplate = Handlebars.compile(mediumModalTemplateScript),
