@@ -37,11 +37,12 @@
 				<div class="timeline-event-container top">
 					<a class="event-tooltip-top" title="<b>1st</b>: Germany invades Poland. World War II begins.<hr>
 <b>3rd</b>: France and Great Britain declare war on Germany."><img src="img/event-air@2x.png"></a>
-					{{eventTooltip}}
+					{{#if europeEventExists}}{{eventTooltip}}{{/if}}
 				</div>
 				<div class="timeline-event-container bottom">
 					<a class="event-tooltip-bottom" title="<b>1st</b>: Germany invades Poland. World War II begins.<hr>
 <b>3rd</b>: France and Great Britain declare war on Germany."><img src="img/event-air@2x.png"></a>
+					{{#if pacificEventExists}}{{eventTooltip}}{{/if}}
 				</div>
 				<div class="timeline-date-container bottom">
 					<p class="date bottom">{{#if isJanuary}}<b>{{year}}</b>{{/if}}{{monthShort}}</p>
@@ -51,7 +52,7 @@
 	</script>
 	
 	<script id="eventTooltip" type="text/x-handlebars-template">
-		<img type="button" data-toggle="tooltip" data-placement="top" title="Tooltip on top" src="img/event-air@2x.png">
+		<a class="event-tooltip{{#if pacificEventExists}}-bottom{{else}}-top{{/if}}" title="{{#if event}}<b>{{event.day}}</b>: {{event.text}}{{#if more than 1 event}}<hr>{{/if}}{{/if}}"><img src="img/event-{{event.type}}@2x.png"></a>
 	</script>
 
 	<script id="mediumButton" type="text/x-handlebars-template">
