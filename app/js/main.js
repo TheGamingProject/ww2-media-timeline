@@ -117,10 +117,7 @@ $(window).load(function() {
         dateBottomColId = '#' + date.year + "-" + date.month + "-month-col-bottom",
         popoverId = '#' + row.uniqueId + '-popover';
 
-      console.log(dateTopColId);
-      console.log(dateBottomColId);
-      console.log(popoverId);
-      console.log(row);
+      //console.log(row);
 
       if (row.depicted.isEurope) {
         $(dateTopColId).prepend(mediumButtonTemplate(row));
@@ -169,23 +166,34 @@ $(window).load(function() {
 
 
     _.each(ww2Events, function (row) {
-      var date = getDate(row.date);
+      var date = getDate(row.depicted.date);
 
       if (!date) {
-        console.log('skipping: no events');
+        console.log('skipping: no event date');
         return;
       }
 
-      console.log();
+      var dateTopTimelineId = '#' + date.year + "-" + date.month + "-event-timeline-top",
+        dateBottomTimelineId = '#' + date.year + "-" + date.month + "-event-timeline-bottom";
 
-      //set data-content of popover to handlbars template
-      var htmlG = eventTooltipTemplate(row);
-      $(tooltipId).attr('title', htmlG);
+      //console.log(row);
+
+      //set html of month timeline event div to the generatedHtml
+      //  note that if a #dateTopTimelineId already has a event-tooltip it will be overwritten
+      var generatedHtml = eventTooltipTemplate(row);
+
+      if (row.depicted.europeEventExists) {
+        $(dateTopTimelineId).html(generatedHtml);
+      } else if (row.depicted.pacificEventExists) {
+        $(dateBottomTimelineId).html(generatedHtml);
+      }
     });
 
     //http://stackoverflow.com/questions/18410922/bootstrap-3-0-popovers-and-tooltips
     $('[data-toggle="tooltip"]').tooltip({html: true, trigger: 'click', container: 'body'});
     $('[data-toggle="popover"]').popover({html: true, trigger: 'click','placement': 'right'});
+
+    initTooltips();
   });
 
 

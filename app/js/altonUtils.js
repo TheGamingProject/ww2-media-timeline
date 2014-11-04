@@ -41,7 +41,9 @@ $(document).ready(function() {
 	$('.column-scroll-content.top').ready(function() {
 		$('.column-scroll-content.top').animate({scrollTop:2000});
 	});
-	
+});
+
+var initTooltips = function () {
 	$('.event-tooltip-top').tooltipsy({
 		offset: [0, -10],
 		css: {
@@ -68,4 +70,4 @@ $(document).ready(function() {
 			'font-size': '12px'
 		}
 	});
-});
+};
