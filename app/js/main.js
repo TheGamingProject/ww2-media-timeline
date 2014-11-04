@@ -52,7 +52,8 @@ var getDate = function (dateString) {
 $(window).load(function() {
   // executes when complete page is fully loaded, including all frames, objects and images
 
-  var ww2SheetId = '1ds09zgAuPCyoVugEvmABaYhFIpuKELg67e_Q5dR3pJs';
+  var ww2SheetId = '1ds09zgAuPCyoVugEvmABaYhFIpuKELg67e_Q5dR3pJs',
+     ww2EventsId = '1MRJm6mlkOga76Y590pbaguB3C3LjI6368MCUXBGbY24';
 
   getCleanSheetJSON(ww2SheetId, function (resultJSON) {
     var ww2Info = [];
@@ -133,6 +134,53 @@ $(window).load(function() {
       //set data-content of popover to handlbars template
       var htmlG = mediumPopoverTemplate(row);
       $(popoverId).attr('data-content', htmlG);
+    });
+
+    //http://stackoverflow.com/questions/18410922/bootstrap-3-0-popovers-and-tooltips
+    $('[data-toggle="tooltip"]').tooltip({html: true, trigger: 'click', container: 'body'});
+    $('[data-toggle="popover"]').popover({html: true, trigger: 'click','placement': 'right'});
+  });
+  getCleanSheetJSON(ww2EventsId, function (resultJSON) {
+    var ww2Events = [];
+    var id = 1;
+
+    _.each(resultJSON, function (resultRow) {
+      var uniqueEventId = (id++) + ' - ' + resultRow.date;
+
+
+
+      uniqueEventId = uniqueEventId.replace(/[#' :;\.]/g,"");
+
+      ww2Events.push({
+        uniqueEventId: uniqueEventId,
+        depicted: {
+          date: resultRow.date,
+          theater: resultRow.theater,
+          type: resultRow.type,
+          text: resultRow.text,
+          pacificEventExists: resultRow.theater === 'Pacific',
+          europeEventExists: resultRow.theater === 'Europe'
+        }
+      });
+    });
+
+    var eventTooltipTemplateScript = $("#eventTooltip").html(),
+      eventTooltipTemplate = Handlebars.compile(eventTooltipTemplateScript);
+
+
+    _.each(ww2Events, function (row) {
+      var date = getDate(row.date);
+
+      if (!date) {
+        console.log('skipping: no events');
+        return;
+      }
+
+      console.log();
+
+      //set data-content of popover to handlbars template
+      var htmlG = eventTooltipTemplate(row);
+      $(tooltipId).attr('title', htmlG);
     });
 
     //http://stackoverflow.com/questions/18410922/bootstrap-3-0-popovers-and-tooltips
