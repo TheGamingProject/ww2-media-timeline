@@ -47,6 +47,8 @@ var getDate = function (dateString) {
   }
 };
 
+
+
 $(window).load(function() {
   // executes when complete page is fully loaded, including all frames, objects and images
 
@@ -54,15 +56,18 @@ $(window).load(function() {
 
   getCleanSheetJSON(ww2SheetId, function (resultJSON) {
     var ww2Info = [];
+    var id = 0;
 
     _.each(resultJSON, function (resultRow) {
-      var uniqueId = resultRow.title;
+      var uniqueId = (id++) + ' - ' + resultRow.title;
 
       if (resultRow.episodechapter) {
         uniqueId += '-' + resultRow.episodechapter;
       }
 
-      uniqueId = uniqueId.replace(/[#' :;]/g,"");
+
+
+      uniqueId = uniqueId.replace(/[#' :;\.]/g,"");
 
       ww2Info.push({
         uniqueId: uniqueId,
