@@ -57,6 +57,11 @@ a {
     opacity: .5;
   }
 }
+hr{
+	margin-top: 6px;
+	margin-bottom: 0;
+	border: none;
+}
 
 // NAVBAR
 
@@ -288,7 +293,7 @@ a {
 			pointer-events: auto;
 			&.top {background: @color-blue;}
 			&.bottom {background: @color-green;}
-			> img {
+			> a > img {
 				width: 24px;
 				height: 24px;
 				display: block;
@@ -391,26 +396,4 @@ a {
 				display: block;
 			}
 		}
-	}
-	
-//TOOLTIPS
-.tooltip {
-	//left: -84px !important;
-	//right: -76px;
-	max-width: 260px;
-	z-index: 8000;
-}
-	.tooltip-inner {
-		//white-space: nowrap;
-		text-align: left;
-		font-family: @font-sans;
-		line-height: 14px;
-		>hr{
-			margin-top: 6px;
-			margin-bottom: 0;
-			border: none;
-		}
-	}
-	.tooltip-arrow {
-		//left: 51.5% !important;
 	}

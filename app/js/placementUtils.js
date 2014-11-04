@@ -41,4 +41,31 @@ $(document).ready(function() {
 	$('.column-scroll-content.top').ready(function() {
 		$('.column-scroll-content.top').animate({scrollTop:2000});
 	});
+	
+	$('.event-tooltip-top').tooltipsy({
+		offset: [0, -10],
+		css: {
+			'margin-right':'-38px',
+			'padding': '3px 8px',
+			'max-width': '200px',
+			'color': '#fff',
+			'background-color': '#000000',
+			'border-radius': '4px',
+			'font-family': 'Source Sans Pro',
+			'font-size': '12px'
+		}
+	});
+	$('.event-tooltip-bottom').tooltipsy({
+		offset: [0, 34],
+		css: {
+			'margin-right':'-38px',
+			'padding': '3px 8px',
+			'max-width': '200px',
+			'color': '#fff',
+			'background-color': '#000000',
+			'border-radius': '4px',
+			'font-family': 'Source Sans Pro',
+			'font-size': '12px'
+		}
+	});
 });
