@@ -19,12 +19,12 @@
 	<script id="monthColumn" type="text/x-handlebars-template">
 		<div class="month-width-column">
 			<div class="column-scroll-container top">
-				<div id="{{year}}-{{month}}-month-col-top" class="column-scroll-content top">
+				<div id="{{year}}-{{month}}-month-col-top" class="column-scroll-content top" {{#if isJanuary}}style ="padding-bottom: 102px;"{{/if}}>
 
 				</div>
 			</div>
 			<div class="column-scroll-container bottom">
-				<div id="{{year}}-{{month}}-month-col-bottom" class="column-scroll-content bottom">
+				<div id="{{year}}-{{month}}-month-col-bottom" class="column-scroll-content bottom" {{#if isJanuary}}style ="padding-top: 106px;"{{/if}}>
 
 				</div>
 			</div>
