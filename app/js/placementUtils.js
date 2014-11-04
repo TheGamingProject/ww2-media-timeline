@@ -18,20 +18,26 @@ $(document).ready(function() {
 	});
 	$('#toggle-movies').click(function() {
   		$('.border-movie').fadeToggle();
+  		$('br.movie').fadeToggle();
   		console.log('movies toggle clicked');
 	});
 	$('#toggle-tv').click(function() {
   		$('.border-tv').fadeToggle();
+  		$('br.tv').fadeToggle();
   		console.log('tv toggle clicked');
 	});
 	$('#toggle-games').click(function() {
   		$('.border-game').fadeToggle();
+  		$('br.game').fadeToggle();
   		console.log('games toggle clicked');
 	});
 	$('#toggle-showall').click(function() {
   		$('.border-movie').fadeIn();
+  		$('br.movie').fadeIn();
   		$('.border-tv').fadeIn();
+  		$('br.tv').fadeIn();
   		$('.border-game').fadeIn();
+  		$('br.game').fadeIn();
   		console.log('showall toggle clicked');
 	});
 });
