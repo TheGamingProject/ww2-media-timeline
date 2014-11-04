@@ -38,13 +38,7 @@ $(document).ready(function() {
 		});
 	});
 	
-	$('.column-scroll-content.top').each(function() {
-		$('.column-scroll-content.top').animate({scrollTop:2000}
-			//$(this).innerHeight()
-			);
+	$('.column-scroll-content.top').ready(function() {
+		$('.column-scroll-content.top').animate({scrollTop:2000});
 	});
-});
-
-$(window).load(function() {
-	
 });
