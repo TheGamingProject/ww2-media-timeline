@@ -13,6 +13,7 @@ $(document).ready(function() {
     monthColumnTemplate = Handlebars.compile(monthColumnTemplateScript);
 
 
+  // Add a div for each month the specified range using templates
   var iDate = _.clone(startDate);
   while (!_.isEqual(iDate, endDate)) {
     var monthString = months[iDate.month];
@@ -21,7 +22,7 @@ $(document).ready(function() {
       isJanuary: monthString === 'january',
       monthShort: monthString.substring(0,3).toUpperCase(), 
       year: iDate.year
-    }
+    };
     $('#main').append(monthColumnTemplate(contentObj));
 
     // increment iDate
@@ -34,20 +35,6 @@ $(document).ready(function() {
 
 });
 
-var dateRegexp = /(\d|\d\d)\/(\d|\d\d)\/(\d\d\d\d)/;
-var getDate = function (dateString) {
-  var match = dateString.match(dateRegexp);
-
-  if (match && match.length === 4) {
-    return {
-      month: months[Number(match[1]) - 1],
-      year: match[2],
-      year: match[3]
-    };
-  }
-};
-
-
 
 $(window).load(function() {
   // executes when complete page is fully loaded, including all frames, objects and images
@@ -55,6 +42,7 @@ $(window).load(function() {
   var ww2SheetId = '1ds09zgAuPCyoVugEvmABaYhFIpuKELg67e_Q5dR3pJs',
      ww2EventsId = '1MRJm6mlkOga76Y590pbaguB3C3LjI6368MCUXBGbY24';
 
+  // Get ww2 mediaEntrys from google sheets
   getCleanSheetJSON(ww2SheetId, function (resultJSON) {
     var ww2Info = [];
     var id = 0;
@@ -66,10 +54,10 @@ $(window).load(function() {
         uniqueId += '-' + resultRow.episodechapter;
       }
 
-
-
       uniqueId = uniqueId.replace(/[#' :;\.]/g,"");
 
+      // Transforming the json data into our mediaEntry format,
+      //   which will be consumed by the mediumButton, mediumPopover & mediumModal templates
       ww2Info.push({
         uniqueId: uniqueId,
         depicted: {
@@ -102,9 +90,9 @@ $(window).load(function() {
       mediumPopoverTemplateScript = $("#mediumPopover").html(),
       mediumPopoverTemplate = Handlebars.compile(mediumPopoverTemplateScript);
 
-
-    _.each(ww2Info, function (row) {
-      var date = getDate(row.depicted.date);
+    // Generate a button, popover & modal for each mediaEntry
+    _.each(ww2Info, function (mediaEntry) {
+      var date = getDate(mediaEntry.depicted.date);
 
       if (!date) {
         console.log('skipping: no date');
@@ -113,28 +101,31 @@ $(window).load(function() {
 
       var dateTopColId = '#' + date.year + "-" + date.month + "-month-col-top",
         dateBottomColId = '#' + date.year + "-" + date.month + "-month-col-bottom",
-        popoverId = '#' + row.uniqueId + '-popover';
+        popoverId = '#' + mediaEntry.uniqueId + '-popover';
 
-      //console.log(row);
+      //console.log(mediaEntry);
 
-      if (row.depicted.isEurope) {
-        $(dateTopColId).prepend(mediumButtonTemplate(row));
-      } else if (row.depicted.isPacific) {
-        $(dateBottomColId).prepend(mediumButtonTemplate(row));
+      // Add button to month column div
+      if (mediaEntry.depicted.isEurope) {
+        $(dateTopColId).append(mediumButtonTemplate(mediaEntry));
+      } else if (mediaEntry.depicted.isPacific) {
+        $(dateBottomColId).append(mediumButtonTemplate(mediaEntry));
       }
 
-
-      $('#modalArea').prepend(mediumModalTemplate(row));
+      // Add modal to DOM
+      $('#modalArea').append(mediumModalTemplate(mediaEntry));
 
       //set data-content of popover to handlbars template
-      var htmlG = mediumPopoverTemplate(row);
-      $(popoverId).attr('data-content', htmlG);
+      var generatedHtml = mediumPopoverTemplate(mediaEntry);
+      $(popoverId).attr('data-content', generatedHtml);
     });
 
+    // Initialize all Popovers
     //http://stackoverflow.com/questions/18410922/bootstrap-3-0-popovers-and-tooltips
-    $('[data-toggle="tooltip"]').tooltip({html: true, trigger: 'click', container: 'body'});
     $('[data-toggle="popover"]').popover({html: true, trigger: 'click','placement': 'right'});
   });
+
+  // Get ww2 eventEntrys from google sheets
   getCleanSheetJSON(ww2EventsId, function (resultJSON) {
     var ww2Events = [];
     var id = 1;
@@ -142,10 +133,9 @@ $(window).load(function() {
     _.each(resultJSON, function (resultRow) {
       var uniqueEventId = (id++) + ' - ' + resultRow.date;
 
-
-
       uniqueEventId = uniqueEventId.replace(/[#' :;\.]/g,"");
 
+      // Transforming the json data into our eventEntry format which will be consumed by the eventTooltip template
       ww2Events.push({
         uniqueEventId: uniqueEventId,
         depicted: {
@@ -162,9 +152,9 @@ $(window).load(function() {
     var eventTooltipTemplateScript = $("#eventTooltip").html(),
       eventTooltipTemplate = Handlebars.compile(eventTooltipTemplateScript);
 
-
-    _.each(ww2Events, function (row) {
-      var date = getDate(row.depicted.date);
+    // Generate a image and a tooltip for each eventEntry
+    _.each(ww2Events, function (eventEntry) {
+      var date = getDate(eventEntry.depicted.date);
 
       if (!date) {
         console.log('skipping: no event date');
@@ -174,25 +164,20 @@ $(window).load(function() {
       var dateTopTimelineId = '#' + date.year + "-" + date.month + "-event-timeline-top",
         dateBottomTimelineId = '#' + date.year + "-" + date.month + "-event-timeline-bottom";
 
-      //console.log(row);
+      //console.log(eventEntry);
 
       //set html of month timeline event div to the generatedHtml
       //  note that if a #dateTopTimelineId already has a event-tooltip it will be overwritten
-      var generatedHtml = eventTooltipTemplate(row);
+      var generatedHtml = eventTooltipTemplate(eventEntry);
 
-      if (row.depicted.europeEventExists) {
+      if (eventEntry.depicted.europeEventExists) {
         $(dateTopTimelineId).html(generatedHtml);
-      } else if (row.depicted.pacificEventExists) {
+      } else if (eventEntry.depicted.pacificEventExists) {
         $(dateBottomTimelineId).html(generatedHtml);
       }
     });
 
-    //http://stackoverflow.com/questions/18410922/bootstrap-3-0-popovers-and-tooltips
-    $('[data-toggle="tooltip"]').tooltip({html: true, trigger: 'click', container: 'body'});
-    $('[data-toggle="popover"]').popover({html: true, trigger: 'click','placement': 'right'});
-
     initTooltips();
   });
-
 
 });
