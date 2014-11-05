@@ -74,7 +74,7 @@ $(window).load(function() {
         }, 
         media: {
           title: resultRow.title,
-          imgtitle: resultRow.title.replace(/[#' :;\.]/g,""),
+          imgtitle: resultRow.title.replace(/[#' :;\.]/g,"").toLowerCase(),
           episode: resultRow.episodechapter,
           medium: resultRow.medium.toLowerCase(),
           released: resultRow.releasedate,
