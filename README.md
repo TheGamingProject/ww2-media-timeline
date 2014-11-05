@@ -8,10 +8,11 @@ Laundry List
 [x] Navbar styling<br>
 [x] Info panel assets<br>
 [x] Info panel styling<br>
-[ ] Timeline assets<br>
-[ ] Timeline events json<br>
+[x] Timeline assets<br>
+[x] Timeline events json<br>
 [x] Timeline events styling<br>
-[ ] Thumbnail assets<br>
+[x] Thumbnail assets<br>
 [x] Month list styling (Still have initial positioning issue)<br>
-[ ] Fill in the JSON blanks<br>
+[x] Fill in the JSON blanks<br>
 [ ] Get Metacritic/Accuracy scores<br>
+[ ] Get info for more entries (Need at least 150-20; more Pacific Theater entries desired)
