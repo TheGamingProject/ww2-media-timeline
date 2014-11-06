@@ -397,3 +397,33 @@ hr{
 			}
 		}
 	}
+	
+//NAVIGATION CONTROLS
+.timeline-label {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	z-index: 1998;
+	font-family: @font-sans;
+	font-weight: 600;
+	color: @color-black;
+	opacity: .2;
+	letter-spacing: 4px;
+	text-align: center;
+	line-height: 24px;
+	margin-top: -24px;
+	margin-left: -90px;
+	pointer-events: none;
+}
+.nav-arrow {
+	color: @color-black;
+	font-family: @font-serif;
+	font-size: 48px;
+	
+	position: fixed;
+	top: 50%;
+	margin-top: -40px;
+	z-index: 1998;
+	&.left {left: 20px;}
+	&.right {right: 20px;}
+}
