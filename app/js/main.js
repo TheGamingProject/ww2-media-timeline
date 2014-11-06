@@ -179,7 +179,7 @@ $(window).load(function() {
     });
 
     initTooltips();
-    initNavigation();
+//    initNavigation();
   });
 
 });
