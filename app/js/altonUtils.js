@@ -1,4 +1,5 @@
 $(document).ready(function() {
+	$('body').animate({scrollLeft: 760});
 	
     $('#toggle-info').click(function() {
     	$('.infopanel').animate({left: 0});
@@ -9,16 +10,19 @@ $(document).ready(function() {
 	$('#toggle-movies').click(function() {
   		$('.border-movie').fadeToggle();
   		$('br.movie').fadeToggle();
+  		$('.column-scroll-content.top').animate({scrollTop:1000});
   		console.log('movies toggle clicked');
 	});
 	$('#toggle-tv').click(function() {
   		$('.border-tv').fadeToggle();
   		$('br.tv').fadeToggle();
+  		$('.column-scroll-content.top').animate({scrollTop:1000});
   		console.log('tv toggle clicked');
 	});
 	$('#toggle-games').click(function() {
   		$('.border-game').fadeToggle();
   		$('br.game').fadeToggle();
+  		$('.column-scroll-content.top').animate({scrollTop:1000});
   		console.log('games toggle clicked');
 	});
 	$('#toggle-showall').click(function() {
@@ -28,6 +32,7 @@ $(document).ready(function() {
   		$('br.tv').fadeIn();
   		$('.border-game').fadeIn();
   		$('br.game').fadeIn();
+  		$('.column-scroll-content.top').animate({scrollTop:1000});
   		console.log('showall toggle clicked');
 	});
 	
