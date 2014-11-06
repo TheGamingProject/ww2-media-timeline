@@ -179,6 +179,7 @@ $(window).load(function() {
     });
 
     initTooltips();
+    initNavigation();
   });
 
 });

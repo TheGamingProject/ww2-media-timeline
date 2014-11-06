@@ -1,23 +1,6 @@
 $(document).ready(function() {
 	$('body').animate({scrollLeft: 760});
 	
-    var $step = $(".month-width-column"),
-    $body = $('body'),
-    pos = 0;
-
-	$("#arrow-right").click(function () {
-		var $nextStep = $step.first();
-
-		pos += 3;
-		$step.length > pos ? $nextStep = $($step[pos]) : pos = 0;
-
-		$body.animate({
-			scrollLeft: $nextStep.offset().left + $body.scrollLeft()
-		}, 500);
-		
-		console.log('arrow right clicked');
-	});
-	
     $('#toggle-info').click(function() {
     	$('.infopanel').animate({left: 0});
 	});
@@ -61,6 +44,36 @@ $(document).ready(function() {
 		$('.column-scroll-content.top').animate({scrollRight:1000});
 	});
 });
+
+var initNavigation = function () {
+	var $step = $(".month-width-column"),
+    $body = $('body'),
+    pos = 0;
+
+	$("#arrow-right").click(function () {
+		var $nextStep = $step.first();
+
+		pos += 3;
+		$step.length > pos ? $nextStep = $($step[pos]) : pos = 0;
+
+		$body.animate({
+			scrollLeft: $nextStep.offset().left + $body.scrollLeft()
+		}, 160);
+		
+		console.log('arrow right clicked');
+	});
+	
+	$("#arrow-left").click(function () {
+		var $nextStep = $step.last();
+
+		pos -= 3;
+		($step.length > pos && pos > -1) ? $nextStep = $($step[pos]) : pos = $step.length - 3;
+
+		$body.animate({
+			scrollLeft: $nextStep.offset().left + $body.scrollLeft()
+		}, 160);
+	});
+};
 
 var initTooltips = function () {
 	$('.event-tooltip-top').tooltipsy({
