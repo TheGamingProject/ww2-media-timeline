@@ -1,62 +1,31 @@
-NAVBAR
-	100% width container
-		left-hand info toggle
-		centered logo
-		right-hand filter toggles
+var initNavigation = function () {
+	$('body').animate({scrollLeft: 760});
+	var $step = $(".month-width-column"),
+    $body = $('body'),
+    pos = 0;
 
-SIDE PANEL
-	left-hand overlapping panel (fixed size/position)
-		right-hand close toggle
-		descriptive text w/ links
+	$("#arrow-right").click(function () {
+		var $nextStep = $step.first();
 
-OVERFLOW-X SCROLL CONTAINER FOR TIMELINE
-	 
-	EURO COLUMNS [month-width, fill to window top]
-		media bubble w/type outline
-			hover-over item name/type
-				item type
-				item name
-				right-hand expand button 
+		pos += 3;
+		$step.length > pos ? $nextStep = $($step[pos]) : pos = 0;
 
-	TIMELINE
-		vertically centered main container
-			1st quarter month list
-				month div
-					month title
-			2nd quarter euro event list
-				absolute centered title
-				month div
-					event icon
-						event list popover
-			3rd quarter pacific event list
-				absolute centered title
-				month div
-					event icon
-						event list popover
-			4th quarter month list
-				month div
-					month title
+		$body.animate({
+			scrollLeft: $nextStep.offset().left + $body.scrollLeft()
+		}, 160);
+		
+		console.log('arrow right clicked');
+	});
 	
-	PACIFIC COLUMNS [month-width, fill to window bottom]
-		media bubble w/type outline
-			hover-over item name/type
+	$("#arrow-left").click(function () {
+		var $nextStep = $step.last();
 
-MODAL
-	modal white overlay background
-	modal container
-		modal content container
-			media thumbnail
-			left-hand close button
-			media type
-			media title
-			red HR line
-			media list
-				left-hand list item title
-				right-hand list item content
-				
+		pos -= 3;
+		($step.length > pos && pos > -1) ? $nextStep = $($step[pos]) : pos = $step.length - 3;
 
-BACKGROUND
-	top-half euro image
-	bottom-half pacific image
-	fades on top & bottom that overlap all but header/sidepanel
+		$body.animate({
+			scrollLeft: $nextStep.offset().left + $body.scrollLeft()
+		}, 160);
+	});
+};
 	
