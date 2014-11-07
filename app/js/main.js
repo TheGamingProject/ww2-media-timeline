@@ -33,6 +33,7 @@ $(document).ready(function() {
     }
   }
 
+  initNavigation();
 });
 
 
@@ -179,7 +180,6 @@ $(window).load(function() {
     });
 
     initTooltips();
-//    initNavigation();
   });
 
 });

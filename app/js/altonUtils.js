@@ -46,6 +46,23 @@ $(document).ready(function() {
 	
 });
 
+var initNavigation = function () {
+  var $body = $('body'),
+    scrollPixelLength = 150,
+    scrollTimeLength = 160;
+
+  $("#arrow-right").click(function () {
+    $body.animate({
+      scrollLeft: $body.scrollLeft() + scrollPixelLength
+    }, scrollTimeLength);
+  });
+  $("#arrow-left").click(function () {
+    $body.animate({
+      scrollLeft: $body.scrollLeft() - scrollPixelLength
+    }, scrollTimeLength);
+  });
+};
+
 var initTooltips = function () {
 	$('.column-scroll-content.top').ready(function() {
 		$('.column-scroll-content.top').animate({scrollTop:1000});
