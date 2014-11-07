@@ -80,7 +80,9 @@ $(window).load(function() {
           medium: resultRow.medium.toLowerCase(),
           released: resultRow.releasedate,
           releasedYear: resultRow.releasedate.substring(resultRow.releasedate.length - 4),
-          metacritic: resultRow.metacritic
+          metacritic: resultRow.metacritic,
+          amazon: resultRow.amazon,
+          canistreamit: resultRow.canistreamit
         }
       });
     });

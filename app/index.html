@@ -80,11 +80,13 @@
 					<h2>{{media.releasedYear}} {{media.medium}}</h2>
 					<h1>{{media.title}}</h1>
 					{{#if media.episode}}<h3>&#8220; {{media.episode}} &#8221;</h3>{{/if}}
+					
+					<p class="mediainfo-links"><a href="{{media.amazon}}" target="_blank">Buy on Amazon</a>{{#if media.canistreamit}} &nbsp;&nbsp;&nbsp;&nbsp; <a href="{{media.canistreamit}}" target="_blank">Can I Stream It?</a>{{/if}}</p>
 					<hr>
 					<p class="mediainfo-titles">
+						{{#if depicted.event}}<span class="title">EVENT</span>{{depicted.event}}<br>{{/if}}
 						{{#if depicted.date}}<span class="title">DATE</span> {{depicted.date}}<br>{{/if}}
 						{{#if depicted.location}}<span class="title">LOCATION</span> {{depicted.location}}<br>{{/if}}
-						{{#if depicted.event}}<span class="title">EVENT</span>{{depicted.event}}<br>{{/if}}
 						{{#if depicted.alliance}}<span class="title">ALLIANCE</span> {{depicted.alliance}}<br>{{/if}}
 						{{#if depicted.military}}<span class="title">MILITARY</span> {{depicted.military}}<br>{{/if}}
 						{{#if depicted.division}}<span class="title">DIVISION</span> {{depicted.division}}<br>{{/if}}
@@ -92,7 +94,7 @@
 					<hr>
 					<p class="mediainfo-titles">
 						{{#if media.released}}<span class="title">RELEASED</span>  {{media.released}}<br>{{/if}}
-						{{#if media.metacritic}}<span class="title">METACRITIC</span>  {{media.metacritic}}<br>{{/if}}
+						{{#if media.metacritic}}<span class="title">METACRITIC</span>  {{media.metacritic}}/100<br>{{/if}}
 						{{#if depicted.accuracy}}<span class="title">ACCURACY</span>  {{depicted.accuracy}}<br>{{/if}}
 					</p>
 				</div>
