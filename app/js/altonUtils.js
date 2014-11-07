@@ -8,30 +8,30 @@ $(document).ready(function() {
     	$('.infopanel').animate({left: -200});
 	});
 	$('#toggle-movies').click(function() {
-  		$('.border-movie').fadeToggle();
-  		$('br.movie').fadeToggle();
+  		$('.border-film').fadeToggle();
+  		$('br.film').fadeToggle();
   		$('.column-scroll-content.top').animate({scrollTop:1000});
   		console.log('movies toggle clicked');
 	});
 	$('#toggle-tv').click(function() {
-  		$('.border-tv').fadeToggle();
-  		$('br.tv').fadeToggle();
+  		$('.border-television').fadeToggle();
+  		$('br.television').fadeToggle();
   		$('.column-scroll-content.top').animate({scrollTop:1000});
   		console.log('tv toggle clicked');
 	});
 	$('#toggle-games').click(function() {
-  		$('.border-game').fadeToggle();
-  		$('br.game').fadeToggle();
+  		$('.border-videogame').fadeToggle();
+  		$('br.videogame').fadeToggle();
   		$('.column-scroll-content.top').animate({scrollTop:1000});
   		console.log('games toggle clicked');
 	});
 	$('#toggle-showall').click(function() {
-  		$('.border-movie').fadeIn();
-  		$('br.movie').fadeIn();
-  		$('.border-tv').fadeIn();
-  		$('br.tv').fadeIn();
-  		$('.border-game').fadeIn();
-  		$('br.game').fadeIn();
+  		$('.border-film').fadeIn();
+  		$('br.film').fadeIn();
+  		$('.border-television').fadeIn();
+  		$('br.television').fadeIn();
+  		$('.border-videogame').fadeIn();
+  		$('br.videogame').fadeIn();
   		$('.column-scroll-content.top').animate({scrollTop:1000});
   		console.log('showall toggle clicked');
 	});
