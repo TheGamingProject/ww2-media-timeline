@@ -311,6 +311,17 @@ hr{
 	z-index: 11;
 	background: linear-gradient(to top, rgba(241,241,241,1) 0%,rgba(241,241,241,0) 100%);
 	pointer-events: none;
+	> p {
+		text-align: center;
+		padding-top: 80px;
+		> a {
+			pointer-events: auto;
+			font-family: @font-serif;
+			font-size: 12px;
+			font-style: italic;
+			color: @color-gray;
+		}
+	}
 }
 
 //MODAL
