@@ -82,7 +82,8 @@ $(window).load(function() {
           releasedYear: resultRow.releasedate.substring(resultRow.releasedate.length - 4),
           metacritic: resultRow.metacritic,
           amazon: resultRow.amazon,
-          canistreamit: resultRow.canistreamit
+          canistreamit: resultRow.canistreamit,
+          wiki: resultRow.wikipage
         }
       });
     });
