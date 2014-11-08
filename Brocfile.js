@@ -17,7 +17,7 @@ var app = 'app',
  */
 appHtml = pickFiles(app, {
   srcDir  : '/',
-  files   : ['index.html'],
+  files   : ['index.html','credits.html'],
   destDir : '/'
 });
 
