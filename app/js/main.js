@@ -55,7 +55,7 @@ $(window).load(function() {
         uniqueId += '-' + resultRow.episodechapter;
       }
 
-      uniqueId = uniqueId.replace(/[#' :;\.]/g,"");
+      uniqueId = uniqueId.replace(/[#' :;\.!]/g,"");
 
       // Transforming the json data into our mediaEntry format,
       //   which will be consumed by the mediumButton, mediumPopover & mediumModal templates
@@ -75,7 +75,7 @@ $(window).load(function() {
         }, 
         media: {
           title: resultRow.title,
-          imgtitle: resultRow.title.replace(/[#' :;\.]/g,"").toLowerCase(),
+          imgtitle: resultRow.title.replace(/[#' :;\.!]/g,"").toLowerCase(),
           episode: resultRow.episodechapter,
           medium: resultRow.medium.toLowerCase(),
           released: resultRow.releasedate,
