@@ -8,31 +8,37 @@ $(document).ready(function() {
     	$('.infopanel').animate({left: -200});
 	});
 	$('#toggle-movies').click(function() {
+		$(this).toggleClass('toggle-active');
   		$('.border-film').fadeToggle();
   		$('br.film').fadeToggle();
-  		$('.column-scroll-content.top').animate({scrollTop:1000});
+  		$('.column-scroll-content.top').animate({scrollTop:2000});
   		console.log('movies toggle clicked');
 	});
 	$('#toggle-tv').click(function() {
+		$(this).toggleClass('toggle-active');
   		$('.border-television').fadeToggle();
   		$('br.television').fadeToggle();
-  		$('.column-scroll-content.top').animate({scrollTop:1000});
+  		$('.column-scroll-content.top').animate({scrollTop:2000});
   		console.log('tv toggle clicked');
 	});
 	$('#toggle-games').click(function() {
+		$(this).toggleClass('toggle-active');
   		$('.border-videogame').fadeToggle();
   		$('br.videogame').fadeToggle();
-  		$('.column-scroll-content.top').animate({scrollTop:1000});
+  		$('.column-scroll-content.top').animate({scrollTop:2000});
   		console.log('games toggle clicked');
 	});
 	$('#toggle-showall').click(function() {
+  		$('#toggle-movies').removeClass('toggle-active');
   		$('.border-film').fadeIn();
   		$('br.film').fadeIn();
+  		$('#toggle-tv').removeClass('toggle-active');
   		$('.border-television').fadeIn();
   		$('br.television').fadeIn();
+  		$('#toggle-games').removeClass('toggle-active');
   		$('.border-videogame').fadeIn();
   		$('br.videogame').fadeIn();
-  		$('.column-scroll-content.top').animate({scrollTop:1000});
+  		$('.column-scroll-content.top').animate({scrollTop:2000});
   		console.log('showall toggle clicked');
 	});
 	
@@ -65,7 +71,7 @@ var initNavigation = function () {
 
 var initTooltips = function () {
 	$('.column-scroll-content.top').ready(function() {
-		$('.column-scroll-content.top').animate({scrollTop:1000});
+		$('.column-scroll-content.top').animate({scrollTop:2000});
 	});
 	$('.event-tooltip-top').tooltipsy({
 		offset: [0, -10],
