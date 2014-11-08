@@ -3,7 +3,9 @@ var compileLess = require('broccoli-less-single'),
   mergeTrees  = require('broccoli-merge-trees'),
   pickFiles   = require('broccoli-static-compiler'),
   uglifyJs    = require('broccoli-uglify-js'),
-  app = 'app',
+  env = require('broccoli-env').getEnv();
+
+var app = 'app',
   appCss,
   appHtml,
   appJs,
@@ -28,9 +30,13 @@ appJs = concatenate(app, {
   inputFiles : ['**/*.js'],
   outputFile : '/assets/app.js'
 });
-/*appJs = uglifyJs(appJs, {
-    compress: true
-});*/
+
+if (env === 'production') {
+  appJs = uglifyJs(appJs, {
+    compress: true,
+    mangle: true
+  });
+}
 
 appImg = pickFiles(app, {
   srcDir  : '/',

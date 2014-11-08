@@ -16,3 +16,20 @@ Laundry List
 [x] Fill in the JSON blanks<br>
 [ ] Get Metacritic/Accuracy scores<br>
 [ ] Get info for more entries (Need at least 150-20; more Pacific Theater entries desired)
+
+
+
+Running / Development
+------------
+```
+npm install
+npm install -g broccoli-cli
+
+# To run on http://localhost:4200
+broccoli serve
+
+```
+
+## Building
+
+```BROCCOLI_ENV=production broccoli build dist```
