@@ -34,7 +34,7 @@ $(document).ready(function() {
   }
 
   initNavigation();
-  initGrabScroll();
+  //initGrabScroll();
 });
 
 
