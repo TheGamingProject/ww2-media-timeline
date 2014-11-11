@@ -239,6 +239,10 @@ hr{
 				display: none; 
 			} //NOTE: EXPERIMENTAL
 			
+			::-moz-scrollbars-none-scrollbar { 
+				display: none; 
+			}
+			
 			.europe{
 			}
 			.pacific{
@@ -273,6 +277,7 @@ hr{
 			> .date {
 				font-family: @font-sans;
 				-webkit-transform: rotate(270deg);
+				transform: rotate(270deg);
 				color: @color-dates;
 				margin-top: 21px;
 				z-index: 0;
