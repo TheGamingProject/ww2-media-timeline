@@ -13,7 +13,7 @@ $(document).ready(function() {
   		$('br.film').fadeToggle();
   		$('.column-scroll-content.top').animate({scrollTop:2000});
   		console.log('movies toggle clicked');
-      setShowAll();
+    toggleLabel();
 	});
 	$('#toggle-tv').click(function() {
 		$(this).toggleClass('toggle-active');
@@ -21,7 +21,7 @@ $(document).ready(function() {
   		$('br.television').fadeToggle();
   		$('.column-scroll-content.top').animate({scrollTop:2000});
   		console.log('tv toggle clicked');
-      setShowAll();
+    toggleLabel();
 	});
 	$('#toggle-games').click(function() {
 		$(this).toggleClass('toggle-active');
@@ -29,8 +29,16 @@ $(document).ready(function() {
   		$('br.videogame').fadeToggle();
   		$('.column-scroll-content.top').animate({scrollTop:2000});
   		console.log('games toggle clicked');
-      setShowAll();
+    toggleLabel();
 	});
+
+  var toggleLabel = function () {
+    if (areAllShown()) {
+      setHideAll();
+    } else {
+      setShowAll();
+    }
+  }
 
   var showAll = function() {
     $('#toggle-movies').removeClass('toggle-active');
@@ -80,6 +88,10 @@ $(document).ready(function() {
       setShowAll();
     }
    });
+
+  var areAllShown = function () {
+    return !$('#toggle-tv').hasClass('toggle-active') && !$('#toggle-games').hasClass('toggle-active') && !$('#toggle-movies').hasClass('toggle-active');
+  };
 	
 	$('#main').on('click', function (e) {
 		$('[data-toggle="popover"]').each(function () {
