@@ -13,6 +13,7 @@ $(document).ready(function() {
   		$('br.film').fadeToggle();
   		$('.column-scroll-content.top').animate({scrollTop:2000});
   		console.log('movies toggle clicked');
+      setShowAll();
 	});
 	$('#toggle-tv').click(function() {
 		$(this).toggleClass('toggle-active');
@@ -20,6 +21,7 @@ $(document).ready(function() {
   		$('br.television').fadeToggle();
   		$('.column-scroll-content.top').animate({scrollTop:2000});
   		console.log('tv toggle clicked');
+      setShowAll();
 	});
 	$('#toggle-games').click(function() {
 		$(this).toggleClass('toggle-active');
@@ -27,20 +29,57 @@ $(document).ready(function() {
   		$('br.videogame').fadeToggle();
   		$('.column-scroll-content.top').animate({scrollTop:2000});
   		console.log('games toggle clicked');
+      setShowAll();
 	});
-	$('#toggle-showall').click(function() {
-  		$('#toggle-movies').removeClass('toggle-active');
-  		$('.border-film').fadeIn();
-  		$('br.film').fadeIn();
-  		$('#toggle-tv').removeClass('toggle-active');
-  		$('.border-television').fadeIn();
-  		$('br.television').fadeIn();
-  		$('#toggle-games').removeClass('toggle-active');
-  		$('.border-videogame').fadeIn();
-  		$('br.videogame').fadeIn();
-  		$('.column-scroll-content.top').animate({scrollTop:2000});
-  		console.log('showall toggle clicked');
-	});
+
+  var showAll = function() {
+    $('#toggle-movies').removeClass('toggle-active');
+    $('.border-film').fadeIn();
+    $('br.film').fadeIn();
+    $('#toggle-tv').removeClass('toggle-active');
+    $('.border-television').fadeIn();
+    $('br.television').fadeIn();
+    $('#toggle-games').removeClass('toggle-active');
+    $('.border-videogame').fadeIn();
+    $('br.videogame').fadeIn();
+    $('.column-scroll-content.top').animate({scrollTop:2000});
+    console.log('showall toggle clicked');
+  };
+
+  var hideAll = function() {
+    $('#toggle-movies').addClass('toggle-active');
+    $('.border-film').fadeOut();
+    $('br.film').fadeOut();
+    $('#toggle-tv').addClass('toggle-active');
+    $('.border-television').fadeOut();
+    $('br.television').fadeOut();
+    $('#toggle-games').addClass('toggle-active');
+    $('.border-videogame').fadeOut();
+    $('br.videogame').fadeOut();
+    $('.column-scroll-content.top').animate({scrollTop:2000});
+    console.log('hideall toggle clicked');
+  };
+
+  var setHideAll = function () {
+    $('#label-showhideall').html('HIDE ALL');
+    toggleAll = 'hide';
+  };
+
+  var setShowAll = function () {
+    $('#label-showhideall').html('SHOW ALL');
+    toggleAll = 'show';
+  };
+
+  var toggleAll = 'hide';
+  $('#toggle-showall').click(function () {
+    if (toggleAll === 'show') {
+      showAll();
+      setHideAll();
+    } else {
+      hideAll();
+      setShowAll();
+    }
+   });
 	
 	$('#main').on('click', function (e) {
 		$('[data-toggle="popover"]').each(function () {
