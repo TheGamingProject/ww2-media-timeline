@@ -40,7 +40,7 @@ if (env === 'production') {
 
 appImg = pickFiles(app, {
   srcDir  : '/',
-  files   : ['**/*.png','**/*.jpg'],
+  files   : ['**/*.png','**/*.jpg', '**/*.ico'],
   destDir : '/'
 });
 

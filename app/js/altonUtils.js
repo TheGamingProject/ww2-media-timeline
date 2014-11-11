@@ -100,3 +100,23 @@ var initTooltips = function () {
 		}
 	});
 };
+
+var initGrabScroll = function () {
+  var $monthWidthColumns = $('.month-width-column'),
+    $body = $('body'),
+    onMoveAndDown;
+
+  $monthWidthColumns.on('mousedown',  function(e) {
+    onMoveAndDown = function(evt) {
+      $body.stop(false, true).animate({
+        scrollLeft: e.pageX - evt.clientX
+      });
+
+      $body.on('mouseup', function (e) {
+        $monthWidthColumns.off('mousemove', onMoveAndDown);
+      });
+    };
+
+    $monthWidthColumns.on('mousemove', onMoveAndDown);
+  });
+};
